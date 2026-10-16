@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="config_method_title">Добавить конфигурацию</string>
+    <string name="config_close">Закрыть</string>
+    <string name="config_back">Назад</string>
+
+
+    <string name="config_preview_title">Что получилось</string>
+    <string name="config_paste_title">Вставьте ссылку на конфигурацию</string>
+    <string name="config_paste_body">Нажмите «Вставить», и Vazie VPN прочитает то, что лежит в буфере обмена. Прочитает здесь, на вашем устройстве, и никуда не отправит. Исключение одно — ссылка на подписку: её Vazie VPN откроет, чтобы загрузить список.</string>
+    <string name="config_detection_waiting">Ждём ссылку</string>
+    <string name="config_detection_unsupported">Пока не поддерживается</string>
+    <string name="config_detection_invalid">Не удалось прочитать</string>
+    <string name="config_detection_subscription">Подписка</string>
+
+    <string name="config_subscription_loading">Загружаем список конфигураций с %1$s…</string>
+    <plurals name="config_subscription_found">
+        <item quantity="one">%d конфигурация в этой подписке</item>
+        <item quantity="few">%d конфигурации в этой подписке</item>
+        <item quantity="many">%d конфигураций в этой подписке</item>
+        <item quantity="other">%d конфигурации в этой подписке</item>
+    </plurals>
+    <plurals name="config_subscription_skipped">
+        <item quantity="one">Ещё %d ссылка пропущена: такие Vazie VPN пока не читает.</item>
+        <item quantity="few">Ещё %d ссылки пропущены: такие Vazie VPN пока не читает.</item>
+        <item quantity="many">Ещё %d ссылок пропущено: такие Vazie VPN пока не читает.</item>
+        <item quantity="other">Ещё %d ссылки пропущены: такие Vazie VPN пока не читает.</item>
+    </plurals>
+    <plurals name="config_subscription_truncated">
+        <item quantity="one">Список длиннее. За один раз Vazie VPN добавляет первую %d.</item>
+        <item quantity="few">Список длиннее. За один раз Vazie VPN добавляет первые %d.</item>
+        <item quantity="many">Список длиннее. За один раз Vazie VPN добавляет первые %d.</item>
+        <item quantity="other">Список длиннее. За один раз Vazie VPN добавляет первые %d.</item>
+    </plurals>
+    <string name="config_subscription_once">Список загружается один раз. Если подписка изменится, добавьте её ссылку снова.</string>
+    <string name="config_subscription_insecure">Эта ссылка на подписку начинается с http. Vazie VPN загружает подписки только по https, чтобы по пути их никто не прочитал.</string>
+    <string name="config_subscription_unreachable">Не удалось связаться с %1$s. Проверьте соединение и попробуйте ещё раз.</string>
+    <string name="config_subscription_refused">%1$s не отдал список. Возможно, в ссылке ошибка или она больше не действует.</string>
+    <string name="config_subscription_too_large">Ответ %1$s слишком большой, чтобы быть списком конфигураций.</string>
+    <string name="config_subscription_empty">По этой ссылке нет ничего, что Vazie VPN может прочитать как конфигурацию.</string>
+    <plurals name="config_action_add_all">
+        <item quantity="one">Добавить %d конфигурацию</item>
+        <item quantity="few">Добавить %d конфигурации</item>
+        <item quantity="many">Добавить %d конфигураций</item>
+        <item quantity="other">Добавить %d конфигурации</item>
+    </plurals>
+    <plurals name="config_done_many_title">
+        <item quantity="one">Добавлена %d конфигурация</item>
+        <item quantity="few">Добавлены %d конфигурации</item>
+        <item quantity="many">Добавлено %d конфигураций</item>
+        <item quantity="other">Добавлены %d конфигурации</item>
+    </plurals>
+
+    <string name="config_unsupported_security">Ссылку VLESS Vazie VPN понимает, но защиту %1$s пока не поддерживает.</string>
+    <string name="config_unsupported_transport">Ссылку VLESS Vazie VPN понимает, но транспорт %1$s пока не поддерживает.</string>
+    <string name="config_unsupported_flow">Ссылку VLESS Vazie VPN понимает, но поток %1$s пока не поддерживает.</string>
+    <string name="config_unsupported_encryption">Ссылку VLESS Vazie VPN понимает, но шифрование VLESS (%1$s) пока не поддерживает.</string>
+
+    <string name="config_invalid_empty">Читать было нечего — в буфере обмена пусто.</string>
+    <string name="config_invalid_not_a_link">Это не похоже на ссылку VLESS.</string>
+    <string name="config_invalid_other_scheme">Vazie VPN читает ссылки VLESS, а это %1$s.</string>
+    <string name="config_invalid_malformed">Эта ссылка VLESS записана не по правилам.</string>
+    <string name="config_invalid_missing_user_id">В ссылке нет идентификатора пользователя.</string>
+    <string name="config_invalid_malformed_user_id">Идентификатор пользователя VLESS указан неверно.</string>
+    <string name="config_invalid_missing_host">Не указан адрес сервера.</string>
+    <string name="config_invalid_malformed_host">Адрес сервера не похож ни на имя хоста, ни на IP.</string>
+    <string name="config_invalid_missing_port">Не указан порт сервера.</string>
+    <string name="config_invalid_port">Порт сервера должен быть числом от 1 до 65535.</string>
+    <string name="config_invalid_encoding">Часть ссылки закодирована неправильно — Vazie VPN не может её прочитать.</string>
+    <string name="config_invalid_missing_reality_key">В этой конфигурации REALITY нет публичного ключа.</string>
+    <string name="config_invalid_missing_parameter">В ссылке не хватает обязательного параметра: %1$s.</string>
+    <string name="config_invalid_conflicting">Эти части ссылки противоречат друг другу: %1$s.</string>
+
+    <string name="config_review_title">Проверьте и назовите</string>
+    <string name="config_review_secrets_note">Ключи и пароли скрыты, пока вы сами их не откроете. С устройства они не уходят.</string>
+    <string name="config_review_kept_title">Сохранено как есть: %1$s</string>
+    <string name="config_review_kept_body">Эти параметры Vazie VPN не распознаёт и сохраняет как есть.</string>
+    <string name="config_name_placeholder">Придумайте имя</string>
+
+    <string name="config_field_protocol">Протокол</string>
+    <string name="config_field_transport">Транспорт</string>
+    <string name="config_field_server">Сервер</string>
+    <string name="config_field_sni">SNI</string>
+    <string name="config_field_fingerprint">Отпечаток</string>
+    <string name="config_field_flow">Поток</string>
+    <string name="config_field_name">Имя</string>
+    <string name="config_field_last_used">Использовалась</string>
+
+    <string name="config_action_continue">Дальше</string>
+    <string name="config_action_paste">Вставить из буфера обмена</string>
+    <string name="config_action_save">Сохранить конфигурацию</string>
+    <string name="config_action_done">Готово</string>
+    <string name="config_action_rename">Переименовать</string>
+    <string name="config_action_duplicate">Дублировать</string>
+    <string name="config_action_export">Экспорт</string>
+    <string name="config_action_delete">Удалить</string>
+
+    <string name="config_done_title">%1$s добавлена</string>
+    <string name="config_done_body">Лежит только на этом устройстве — и всегда бесплатно.</string>
+
+    <string name="config_details_missing">Этой конфигурации на устройстве больше нет.</string>
+    <string name="config_secret_show">Показать</string>
+    <string name="config_secret_hide">Скрыть</string>
+
+    <string name="config_last_used_never">Ещё не использовалась</string>
+    <string name="config_last_used_yesterday">Вчера</string>
+
+    <string name="config_delete_title">Удалить конфигурацию?</string>
+    <string name="config_delete_body">%1$s будет удалена с этого устройства. Отменить это нельзя.</string>
+    <string name="config_delete_confirm">Удалить</string>
+    <string name="config_delete_cancel">Отмена</string>
+
+    <string name="config_last_used_just_now">Только что</string>
+    <string name="config_last_used_today">Сегодня в %1$s</string>
+    <string name="config_last_used_earlier">%1$s</string>
+
+    <string name="config_section_configuration">Конфигурация</string>
+    <string name="config_section_credentials">Учётные данные</string>
+    <string name="config_section_actions">Действия</string>
+    <string name="config_section_danger">Удаление</string>
+
+
+    <string name="config_rename_title">Переименовать</string>
+    <string name="config_rename_body">Меняется только имя. Подключение продолжит работать, остальное останется как было.</string>
+    <string name="config_rename_confirm">Переименовать</string>
+    <string name="config_rename_cancel">Отмена</string>
+
+    <string name="config_duplicate_name">%1$s (копия)</string>
+    <string name="config_duplicated">Скопировано. Дубликат лежит в конфигурациях.</string>
+
+    <string name="config_export_title">Экспортировать конфигурацию?</string>
+    <string name="config_export_warning">Экспорт содержит ключи для подключения.</string>
+    <string name="config_export_body">Любой, кто получит эту ссылку, сможет пользоваться сервером ровно так же, как вы. Отправляйте её только себе или тому, кому доверили бы свой пароль.</string>
+    <string name="config_export_confirm">Отправить ссылку</string>
+    <string name="config_export_cancel">Отмена</string>
+    <string name="config_export_chooser">Отправить конфигурацию</string>
+    <string name="config_method_have_link">Есть ссылка?</string>
+    <string name="config_method_reads">Вставьте ссылку %1$s или ссылку на подписку в поле или нажмите кнопку рядом — Vazie VPN возьмёт её из буфера обмена.</string>
+    <string name="config_method_link_label">Ссылка</string>
+    <string name="config_method_example_label">Так выглядит ссылка:</string>
+    <string name="config_method_example_a11y">Пример ссылки с конфигурацией</string>
+    <string name="config_method_unsure">Не знаете, что у вас? Вставьте — если Vazie VPN не узнает ссылку, то скажет об этом и не станет ничего угадывать.</string>
+    <string name="config_method_subscription">Подойдёт и ссылка на подписку: Vazie VPN один раз откроет её, чтобы загрузить список конфигураций. Запрос уйдёт только на сервер из этой ссылки.</string>
+    <string name="config_method_planned">Пока Vazie VPN читает только %1$s — одной ссылкой или подпиской. Скоро появятся другие форматы.</string>
+</resources>

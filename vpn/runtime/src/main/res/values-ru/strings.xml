@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Same in both languages, stated so the parity check does not flag a missing translation. -->
+    <string name="vpn_notification_title">Vazie VPN</string>
+    <string name="vpn_notification_channel">Подключение VPN</string>
+    <string name="vpn_notification_channel_description">Показывается, пока туннель активен.</string>
+    <string name="vpn_notification_disconnect">Отключить</string>
+
+    <string name="vpn_state_idle">Отключено</string>
+    <string name="vpn_state_preparing">Подготовка…</string>
+    <string name="vpn_state_connecting">Подключение…</string>
+    <string name="vpn_state_connected">Подключено</string>
+    <string name="vpn_state_disconnecting">Отключение…</string>
+    <string name="vpn_state_failed">Не подключилось</string>
+    <string name="vpn_state_no_internet">Нет интернета</string>
+</resources>

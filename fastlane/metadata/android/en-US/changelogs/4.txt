@@ -1,0 +1,1 @@
+The first public release: your own VLESS configurations and subscriptions (REALITY, TLS; TCP, WebSocket, gRPC), split tunneling, widgets, a Quick Settings tile and shortcuts. No account, no ads, no analytics.

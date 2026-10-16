@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_title">Vazie</string>
+    <string name="home_back">Back</string>
+
+    <string name="home_status_no_configuration">No configuration</string>
+    <string name="home_status_disconnected">Disconnected</string>
+    <string name="home_status_preparing">Preparing…</string>
+    <string name="home_status_connecting">Connecting…</string>
+    <string name="home_status_protected">Protected</string>
+    <string name="home_status_disconnecting">Disconnecting…</string>
+    <string name="home_status_failed">Connection error</string>
+    <string name="home_status_no_internet">No internet</string>
+
+    <string name="home_no_config_title">Add your first config</string>
+    <string name="home_no_config_body">Paste a VLESS link to begin</string>
+    <string name="home_status_unselected">Not chosen</string>
+    <string name="home_unselected_title">Choose what to connect through</string>
+    <string name="home_unselected_body">Pick a configuration below</string>
+    <string name="home_title_not_protected">Not protected</string>
+    <string name="home_title_preparing">Waiting for permission</string>
+    <string name="home_title_connecting">Opening tunnel</string>
+    <string name="home_title_disconnecting">Closing tunnel</string>
+    <string name="home_title_failed">Couldn\'t connect</string>
+    <string name="home_title_no_internet">Check your connection</string>
+
+    <string name="home_subtitle_preparing">Android is asking for VPN permission</string>
+    <string name="home_subtitle_no_internet">Vazie VPN needs internet to connect</string>
+    <string name="home_subtitle_unsupported">This build can\'t run this configuration</string>
+
+    <string name="home_add_config">Add configuration</string>
+    <string name="home_action_connect">Connect</string>
+    <string name="home_action_cancel">Cancel</string>
+    <string name="home_action_disconnect">Disconnect</string>
+    <string name="home_action_disconnecting">…</string>
+    <string name="home_action_retry">Try again</string>
+    <string name="home_action_check_connection">Check connection</string>
+
+    <string name="home_failure_permission">Android VPN permission was not granted</string>
+    <string name="home_failure_no_internet">There is no internet connection</string>
+    <string name="home_failure_profile">This configuration could not be read</string>
+    <string name="home_failure_unsupported">This build can\'t run this configuration</string>
+    <string name="home_failure_tunnel">The tunnel could not be opened</string>
+    <string name="home_failure_handshake">The connection to the server did not complete</string>
+    <string name="home_failure_tunnel_unusable">No traffic reached the internet through the tunnel</string>
+    <string name="home_failure_unknown">Something went wrong</string>
+
+    <string name="home_traffic_downloaded">downloaded</string>
+    <string name="home_traffic_uploaded">uploaded</string>
+
+    <!-- An amount and its unit, joined by a non-breaking space. See `trafficReading`. -->
+    <string name="home_value_amount">%1$s&#160;%2$s</string>
+    <string name="home_unit_bytes">B</string>
+    <string name="home_unit_kilobytes">KB</string>
+    <string name="home_unit_megabytes">MB</string>
+    <string name="home_unit_gigabytes">GB</string>
+    <string name="home_value_milliseconds">%1$d ms</string>
+    <string name="home_value_unknown">—</string>
+    <string name="home_value_traffic">%1$s / %2$s</string>
+    <string name="home_value_on">on</string>
+    <string name="home_value_off">off</string>
+
+
+    <string name="home_diagnostics_engine">Engine</string>
+    <string name="home_diagnostics_protocol">Protocol</string>
+    <string name="home_diagnostics_security">Security</string>
+    <string name="home_diagnostics_transport">Transport</string>
+    <string name="home_diagnostics_flow">Flow</string>
+    <string name="home_diagnostics_endpoint">Endpoint</string>
+    <string name="home_diagnostics_port">Port</string>
+    <!-- Connection details only: host and port get a key each there. -->
+    <string name="home_diagnostics_latency">Latency</string>
+    <string name="home_diagnostics_traffic">RX / TX</string>
+    <string name="home_diagnostics_dns">DNS mode</string>
+    <string name="home_diagnostics_ip">IPv4 / IPv6</string>
+
+    <!-- Connection details only: the headings where Home's joined pairs come apart. -->
+
+    <string name="home_details_title">Connection details</string>
+    <string name="home_details_empty_title">Nothing to show</string>
+    <string name="home_details_empty_body">Connection details appear while a tunnel is open.</string>
+
+    <!-- "Маршрут" Home. -->
+    <string name="home_title_product">VPN</string>
+    <string name="home_a11y_settings">Settings</string>
+    <string name="home_route_device">You</string>
+    <string name="home_route_title_disconnected">Not connected</string>
+    <string name="home_route_title_connecting">Connecting…</string>
+    <string name="home_route_title_connected">Connected</string>
+    <string name="home_route_title_disconnecting">Disconnecting…</string>
+    <string name="home_route_subtitle_direct">Traffic goes straight through your provider</string>
+    <string name="home_route_subtitle_connecting">Building the route to %1$s</string>
+    <string name="home_route_session">%1$s · %2$s</string>
+    <string name="home_route_a11y">%1$s. Route: this device to %2$s</string>
+    <string name="home_traffic_a11y">Connection details</string>
+    <plurals name="home_session_a11y">
+        <item quantity="one">Connected for %d minute</item>
+        <item quantity="other">Connected for %d minutes</item>
+    </plurals>
+</resources>

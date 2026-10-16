@@ -1,0 +1,23 @@
+name: Feature request
+description: Suggest something Vazie VPN should do
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve
+      description: The underlying need is usually more useful than a specific solution.
+    validations:
+      required: true
+
+  - type: textarea
+    id: idea
+    attributes:
+      label: What you have in mind
+      description: Optional — how you'd imagine it working.
+
+  - type: markdown
+    attributes:
+      value: |
+        Vazie VPN won't collect browsing activity, DNS queries or configuration contents, and won't add
+        accounts, ads or built-in servers, so requests that need those will be declined.

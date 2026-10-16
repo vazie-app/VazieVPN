@@ -1,0 +1,89 @@
+name: Bug report
+description: Something is broken or behaves unexpectedly
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ⚠️ **Never paste your VPN configuration here.**
+
+        Configs and share links contain credentials even when it isn't obvious — private keys,
+        UUIDs, passwords, REALITY public keys and short ids. A `vless://…` link is a password.
+        Redact before posting:
+
+        ```
+        vless://<UUID-REDACTED>@<HOST-REDACTED>:443?security=reality&pbk=<REDACTED>
+        ```
+
+        If you've already posted one somewhere, rotate it on your server first.
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: And what you expected instead.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: Device and Android version
+      placeholder: Pixel 7, Android 14
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Vazie VPN version and where you installed it from
+      placeholder: 1.0.0, GitHub release
+    validations:
+      required: true
+
+  - type: dropdown
+    id: transport
+    attributes:
+      label: Transport
+      description: What the link declares as `type=`. Vazie VPN reads VLESS and nothing else.
+      options:
+        - Not applicable
+        - TCP
+        - WebSocket
+        - gRPC
+      default: 0
+
+  - type: dropdown
+    id: security
+    attributes:
+      label: Security
+      description: What the link declares as `security=`.
+      options:
+        - Not applicable
+        - none
+        - TLS
+        - REALITY
+      default: 0
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Anything else
+      description: |
+        Screenshots are welcome with addresses, keys and names cropped out.
+        Security problems do not belong here — see SECURITY.md.
+
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Before submitting
+      options:
+        - label: This report contains no private keys, UUIDs, passwords or complete configs
+          required: true

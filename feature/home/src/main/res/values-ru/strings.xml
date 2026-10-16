@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="home_title">Vazie</string>
+    <string name="home_back">Назад</string>
+
+    <string name="home_status_no_configuration">Нет конфигураций</string>
+    <string name="home_status_disconnected">Отключено</string>
+    <string name="home_status_preparing">Подготовка…</string>
+    <string name="home_status_connecting">Подключение…</string>
+    <string name="home_status_protected">Под защитой</string>
+    <string name="home_status_disconnecting">Отключение…</string>
+    <string name="home_status_failed">Ошибка подключения</string>
+    <string name="home_status_no_internet">Нет интернета</string>
+
+    <string name="home_no_config_title">Добавьте первую конфигурацию</string>
+    <string name="home_no_config_body">Вставьте ссылку VLESS — и можно начинать</string>
+    <string name="home_status_unselected">Не выбрано</string>
+    <string name="home_unselected_title">Выберите, через что подключаться</string>
+    <string name="home_unselected_body">Нажмите на конфигурацию ниже</string>
+    <string name="home_title_not_protected">Защиты нет</string>
+    <string name="home_title_preparing">Ждём разрешение</string>
+    <string name="home_title_connecting">Открываем туннель</string>
+    <string name="home_title_disconnecting">Закрываем туннель</string>
+    <string name="home_title_failed">Не удалось подключиться</string>
+    <string name="home_title_no_internet">Проверьте соединение</string>
+
+    <string name="home_subtitle_preparing">Android спрашивает разрешение на VPN</string>
+    <string name="home_subtitle_no_internet">Без интернета подключиться не получится</string>
+    <string name="home_subtitle_unsupported">Эта сборка такую конфигурацию не запустит</string>
+
+    <string name="home_add_config">Добавить конфигурацию</string>
+    <string name="home_action_connect">Подключиться</string>
+    <string name="home_action_cancel">Отменить</string>
+    <string name="home_action_disconnect">Отключиться</string>
+    <string name="home_action_disconnecting">…</string>
+    <string name="home_action_retry">Повторить</string>
+    <string name="home_action_check_connection">Проверить соединение</string>
+
+    <string name="home_failure_permission">Android не дал разрешение на VPN</string>
+    <string name="home_failure_no_internet">Нет подключения к интернету</string>
+    <string name="home_failure_profile">Не получилось прочитать эту конфигурацию</string>
+    <string name="home_failure_unsupported">Эта сборка такую конфигурацию не запустит</string>
+    <string name="home_failure_tunnel">Не удалось открыть туннель</string>
+    <string name="home_failure_handshake">Сервер не ответил</string>
+    <string name="home_failure_tunnel_unusable">Туннель поднялся, но через него ничего не пошло</string>
+    <string name="home_failure_unknown">Что-то пошло не так</string>
+
+    <string name="home_traffic_downloaded">загружено</string>
+    <string name="home_traffic_uploaded">отправлено</string>
+
+    <string name="home_value_amount">%1$s&#160;%2$s</string>
+    <string name="home_unit_bytes">Б</string>
+    <string name="home_unit_kilobytes">КБ</string>
+    <string name="home_unit_megabytes">МБ</string>
+    <string name="home_unit_gigabytes">ГБ</string>
+    <string name="home_value_milliseconds">%1$d мс</string>
+    <string name="home_value_unknown">—</string>
+    <string name="home_value_traffic">%1$s / %2$s</string>
+    <string name="home_value_on">вкл</string>
+    <string name="home_value_off">выкл</string>
+
+
+    <string name="home_diagnostics_engine">Движок</string>
+    <string name="home_diagnostics_protocol">Протокол</string>
+    <string name="home_diagnostics_security">Шифрование</string>
+    <string name="home_diagnostics_transport">Транспорт</string>
+    <string name="home_diagnostics_flow">Flow</string>
+    <string name="home_diagnostics_endpoint">Адрес</string>
+    <string name="home_diagnostics_port">Порт</string>
+    <string name="home_diagnostics_latency">Задержка</string>
+    <string name="home_diagnostics_traffic">RX / TX</string>
+    <string name="home_diagnostics_dns">Режим DNS</string>
+    <string name="home_diagnostics_ip">IPv4 / IPv6</string>
+
+
+    <string name="home_details_title">О подключении</string>
+    <string name="home_details_empty_title">Пока показывать нечего</string>
+    <string name="home_details_empty_body">Здесь появятся подробности активного подключения.</string>
+
+    <!-- "Маршрут" Home. -->
+    <string name="home_title_product">VPN</string>
+    <string name="home_a11y_settings">Настройки</string>
+    <string name="home_route_device">Вы</string>
+    <string name="home_route_title_disconnected">Не подключено</string>
+    <string name="home_route_title_connecting">Подключаемся…</string>
+    <string name="home_route_title_connected">Подключено</string>
+    <string name="home_route_title_disconnecting">Отключаемся…</string>
+    <string name="home_route_subtitle_direct">Трафик идёт напрямую через вашего провайдера</string>
+    <string name="home_route_subtitle_connecting">Прокладываем маршрут до %1$s</string>
+    <string name="home_route_session">%1$s · %2$s</string>
+    <string name="home_route_a11y">%1$s. Маршрут: это устройство — %2$s</string>
+    <string name="home_traffic_a11y">Подробности соединения</string>
+    <plurals name="home_session_a11y">
+        <item quantity="one">Подключено %d минуту</item>
+        <item quantity="few">Подключено %d минуты</item>
+        <item quantity="many">Подключено %d минут</item>
+        <item quantity="other">Подключено %d минуты</item>
+    </plurals>
+</resources>

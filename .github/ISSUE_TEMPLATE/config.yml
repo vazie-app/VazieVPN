@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability
+    url: https://github.com/vazie-app/VazieVPN/security/advisories/new
+    about: Privately, to the maintainer. Never in a public issue. Email works too — support@vazie.app.
+  - name: Support with the app or a purchase on vazie.app
+    url: https://vazie.app/contacts
+    about: Questions that are not bugs — support@vazie.app.

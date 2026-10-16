@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Default locale: English. Every string here must also exist in values-ru/strings.xml — checkLocalization
+     fails the build otherwise. -->
+<resources>
+    <string name="app_name">Vazie VPN</string>
+    <!-- Built-in servers are named by country, not by machine. See BuiltInServers.kt. -->
+
+    <!-- Widgets: copy is short by design; Russian runs a third longer, so reword rather than scale down. -->
+    <string name="widget_quick_connect_label">Vazie VPN Quick Connect</string>
+    <string name="widget_quick_connect_description">Connection state and one tap to connect.</string>
+    <string name="widget_dashboard_label">Vazie VPN Dashboard</string>
+    <string name="widget_dashboard_description">Connection state, session readings and your saved configurations in one card.</string>
+
+    <!-- Connection status in words, shared by the widgets and the Quick Settings tile. -->
+    <string name="connection_status_no_configuration">No configurations</string>
+    <string name="connection_status_disconnected">Not protected</string>
+    <string name="connection_status_preparing">Preparing</string>
+    <string name="connection_status_connecting">Connecting</string>
+    <string name="connection_status_protected">Protected</string>
+    <string name="connection_status_disconnecting">Disconnecting</string>
+    <string name="connection_status_failed">Connection failed</string>
+    <string name="connection_status_no_internet">No internet</string>
+
+    <!-- The same states, in the words a narrow cell can hold. -->
+    <string name="widget_state_no_configuration_short">No config</string>
+    <string name="widget_state_failed_short">Failed</string>
+    <string name="widget_state_no_internet_short">No internet</string>
+
+    <string name="widget_action_connect">Connect</string>
+    <string name="widget_action_disconnect">Disconnect</string>
+    <string name="widget_action_cancel">Cancel</string>
+    <string name="widget_action_retry">Try again</string>
+    <string name="widget_action_add">Add config</string>
+    <string name="widget_action_open">Open</string>
+
+    <!-- What a screen reader says about the state block: the connection, then the configuration name as
+         typed. -->
+    <string name="widget_a11y_status_server">%1$s. %2$s</string>
+
+    <!-- Spoken label for the dashboard's configuration chips. The configuration name is the user's own text
+         and is never translated. -->
+    <string name="widget_chip_a11y">%1$s. Tap to select.</string>
+
+    <!-- When a configuration last carried traffic, for a widget that is not connected right now. -->
+    <string name="widget_last_used_never">Not used yet</string>
+    <string name="widget_last_used_just_now">Used just now</string>
+    <string name="widget_last_used_today">Used today at %1$s</string>
+    <string name="widget_last_used_yesterday">Used yesterday</string>
+    <string name="widget_last_used_earlier">Used on %1$s</string>
+
+    <!-- Quick Settings tile: the label is the app; the state goes in the subtitle. -->
+    <string name="tile_label">Vazie VPN</string>
+    <!-- Launcher shortcuts: the short label fits about twelve characters; the long one is for room and
+         TalkBack. -->
+    <string name="shortcut_connect_to">Connect to %1$s</string>
+    <string name="shortcut_add_config_short">Add config</string>
+    <string name="shortcut_add_config_long">Add a configuration</string>
+    <!-- The notification explanation, shown once at the moment it means something: the first time somebody
+         presses Connect on a device where Android has not been asked yet. -->
+    <string name="notification_prompt_title">Keep the tunnel visible</string>
+    <string name="notification_prompt_body">While a tunnel is up, Vazie VPN can sit in your status bar with a Disconnect button on it — so you can stop it without opening the app. Vazie VPN connects either way.</string>
+    <string name="notification_prompt_allow">Allow notifications</string>
+    <string name="notification_prompt_not_now">Not now</string>
+    <!-- The first-run tour. Four steps over the real interface, then a card that is not a step. -->
+    <string name="tour_connect_title">Connect and disconnect</string>
+    <string name="tour_connect_body">This is the button that opens the tunnel. Once you\'re protected it turns into Disconnect.</string>
+    <string name="tour_configuration_title">What you\'re connecting through</string>
+    <string name="tour_configuration_body">Your configurations are here — everything Vazie VPN connects through. Tap a row to choose it, or “+ Add” to add one.</string>
+    <string name="tour_settings_title">Settings and guides</string>
+    <string name="tour_settings_body">The gear opens Settings, with the guides for widgets, the tile and everything else.</string>
+
+    <string name="tour_next">Next</string>
+    <string name="tour_back">Back</string>
+    <string name="tour_skip">Skip tour</string>
+    <string name="tour_progress">%1$d / %2$d</string>
+    <!-- Spoken. `2 / 4` read aloud is punctuation, so the screen reader gets a sentence instead. -->
+    <string name="tour_progress_a11y">Step %1$d of %2$d</string>
+
+    <!-- The completion card. It names three optional capabilities and offers the way to read about them - it
+         does not teach any of them, and it must never read as a checklist somebody is behind on. -->
+    <string name="tour_done_title">That\'s the tour</string>
+    <string name="tour_done_body">Vazie VPN also has home-screen widgets, a Quick Settings tile, and your configurations under the app icon when you hold it. None of it is required — the guides are there when you want them.</string>
+    <string name="tour_done_guides">See guides</string>
+    <string name="tour_done_dismiss">Done</string>
+    <!-- The configuration coach mark. One sentence about the gesture, and a pointer to where the rest lives -
+         it may not become a list of capabilities, which is what the permanent guide is for. -->
+    <string name="guidance_swipe_title">Swipe a configuration</string>
+    <string name="guidance_swipe_body">Swipe it to delete it. Everything else is in Details.</string>
+    <string name="guidance_appearance_title">Appearance</string>
+    <string name="guidance_appearance_body">The theme and the app icon: how Vazie VPN looks inside and on your home screen.</string>
+    <string name="guidance_split_title">Split tunneling</string>
+    <string name="guidance_split_body">Choose apps that go around the VPN, or the only apps that go through it.</string>
+    <string name="guidance_guides_title">Guides</string>
+    <string name="guidance_guides_body">Widgets, the Quick Settings tile, shortcuts and the notification — how to turn each on.</string>
+    <string name="guidance_bug_title">Found a bug?</string>
+    <string name="guidance_bug_body">Tell us in a short form: what happened and on which phone. Every report is read.</string>
+
+    <!-- Updates: the backend can require, or only offer, a newer build. -->
+    <string name="update_required_title">Update Vazie VPN</string>
+    <string name="update_required_body">This version is no longer supported. Update Vazie VPN to continue.</string>
+    <string name="update_required_offline">Could not reach Vazie just now. The update is still required.</string>
+    <string name="update_latest_version">Latest version: %1$s</string>
+    <string name="update_action">Update</string>
+    <string name="update_check_again">Check again</string>
+    <string name="update_available_title">Vazie VPN %1$s is available</string>
+    <string name="update_available_body">A newer version is ready. You can update now or later.</string>
+    <string name="update_later">Later</string>
+    <string name="update_up_to_date_title">You are up to date</string>
+    <string name="update_up_to_date_body">The latest version of Vazie VPN is installed.</string>
+    <string name="update_check_failed_title">Could not check for updates</string>
+    <string name="update_check_failed_body">No connection to Vazie. Check the internet and try again.</string>
+    <string name="update_retry">Try again</string>
+    <string name="update_close">Close</string>
+    <string name="update_ok">OK</string>
+</resources>

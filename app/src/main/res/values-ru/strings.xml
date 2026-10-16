@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Vazie VPN</string>
+
+    <string name="widget_quick_connect_label">Vazie VPN: подключение</string>
+    <string name="widget_quick_connect_description">Состояние связи и подключение в одно нажатие.</string>
+    <string name="widget_dashboard_label">Vazie VPN: панель</string>
+    <string name="widget_dashboard_description">Состояние связи, показания сессии и сохранённые конфигурации на одной карточке.</string>
+
+    <string name="connection_status_no_configuration">Нет конфигураций</string>
+    <string name="connection_status_disconnected">Не защищено</string>
+    <string name="connection_status_preparing">Подготовка</string>
+    <string name="connection_status_connecting">Подключение</string>
+    <string name="connection_status_protected">Защищено</string>
+    <string name="connection_status_disconnecting">Отключение</string>
+    <string name="connection_status_failed">Не подключилось</string>
+    <string name="connection_status_no_internet">Нет интернета</string>
+
+    <string name="widget_state_no_configuration_short">Не настроено</string>
+    <string name="widget_state_failed_short">Ошибка</string>
+    <string name="widget_state_no_internet_short">Нет сети</string>
+    <string name="widget_action_connect">Подключить</string>
+    <string name="widget_action_disconnect">Отключить</string>
+    <string name="widget_action_cancel">Отмена</string>
+    <string name="widget_action_retry">Ещё раз</string>
+    <string name="widget_action_add">Добавить</string>
+    <string name="widget_action_open">Открыть</string>
+
+    <string name="widget_a11y_status_server">%1$s. %2$s</string>
+
+    <string name="widget_chip_a11y">%1$s. Нажмите, чтобы выбрать.</string>
+
+    <string name="widget_last_used_never">Ещё не использовалась</string>
+    <string name="widget_last_used_just_now">Использовалась только что</string>
+    <string name="widget_last_used_today">Использовалась сегодня в %1$s</string>
+    <string name="widget_last_used_yesterday">Использовалась вчера</string>
+    <string name="widget_last_used_earlier">Использовалась %1$s</string>
+
+    <string name="tile_label">Vazie VPN</string>
+    <string name="shortcut_connect_to">Подключиться к %1$s</string>
+    <string name="shortcut_add_config_short">Добавить</string>
+    <string name="shortcut_add_config_long">Добавить конфигурацию</string>
+    <string name="notification_prompt_title">Туннель на виду</string>
+    <string name="notification_prompt_body">Пока туннель поднят, Vazie VPN может висеть в строке состояния с кнопкой «Отключить» — чтобы остановить его, не открывая приложение. Подключится Vazie VPN в любом случае.</string>
+    <string name="notification_prompt_allow">Разрешить уведомления</string>
+    <string name="notification_prompt_not_now">Не сейчас</string>
+    <string name="tour_connect_title">Подключение и отключение</string>
+    <string name="tour_connect_body">Это кнопка, которая поднимает туннель. Когда вы под защитой, она становится «Отключиться».</string>
+    <string name="tour_configuration_title">Через что вы подключаетесь</string>
+    <string name="tour_configuration_body">Здесь ваши конфигурации — всё, через что Vazie VPN подключается. Нажмите на строку, чтобы выбрать, а «+ Добавить» — чтобы добавить новую.</string>
+    <string name="tour_settings_title">Настройки и руководства</string>
+    <string name="tour_settings_body">Шестерёнка открывает настройки, а там — руководства по виджетам, плитке и всему остальному.</string>
+
+    <string name="tour_next">Далее</string>
+    <string name="tour_back">Назад</string>
+    <string name="tour_skip">Пропустить</string>
+    <string name="tour_progress">%1$d / %2$d</string>
+    <string name="tour_progress_a11y">Шаг %1$d из %2$d</string>
+
+    <string name="tour_done_title">Вот и всё</string>
+    <string name="tour_done_body">Ещё у Vazie VPN есть виджеты рабочего стола, плитка быстрых настроек и ваши конфигурации под иконкой приложения по долгому нажатию. Ничего из этого не обязательно — руководства подождут, пока не понадобятся.</string>
+    <string name="tour_done_guides">К руководствам</string>
+    <string name="tour_done_dismiss">Готово</string>
+    <string name="guidance_swipe_title">Проведите по конфигурации</string>
+    <string name="guidance_swipe_body">Проведите, чтобы удалить. Всё остальное — в деталях.</string>
+    <string name="guidance_appearance_title">Оформление</string>
+    <string name="guidance_appearance_body">Тема и иконка приложения: как Vazie VPN выглядит внутри и на рабочем столе.</string>
+    <string name="guidance_split_title">Раздельное туннелирование</string>
+    <string name="guidance_split_body">Выберите приложения, которые пойдут мимо VPN, или только те, что пойдут через него.</string>
+    <string name="guidance_guides_title">Руководства</string>
+    <string name="guidance_guides_body">Виджеты, плитка в шторке, ярлыки и уведомление — как включить каждое из них.</string>
+    <string name="guidance_bug_title">Нашли ошибку?</string>
+    <string name="guidance_bug_body">Расскажите в короткой форме: что случилось и на каком телефоне. Мы читаем каждое сообщение.</string>
+
+    <!-- Обновления: backend может потребовать или только предложить новую сборку. -->
+    <string name="update_required_title">Обновите Vazie VPN</string>
+    <string name="update_required_body">Эта версия больше не поддерживается. Обновите Vazie VPN, чтобы продолжить.</string>
+    <string name="update_required_offline">Сейчас не получилось связаться с Vazie. Обновление по-прежнему обязательно.</string>
+    <string name="update_latest_version">Актуальная версия: %1$s</string>
+    <string name="update_action">Обновить</string>
+    <string name="update_check_again">Проверить снова</string>
+    <string name="update_available_title">Доступна версия %1$s</string>
+    <string name="update_available_body">Вышла новая версия Vazie VPN. Обновиться можно сейчас или позже.</string>
+    <string name="update_later">Позже</string>
+    <string name="update_up_to_date_title">Всё актуально</string>
+    <string name="update_up_to_date_body">Установлена актуальная версия Vazie VPN.</string>
+    <string name="update_check_failed_title">Не удалось проверить обновления</string>
+    <string name="update_check_failed_body">Нет связи с Vazie. Проверьте интернет и попробуйте снова.</string>
+    <string name="update_retry">Повторить</string>
+    <string name="update_close">Закрыть</string>
+    <string name="update_ok">Понятно</string>
+</resources>

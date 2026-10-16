@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Vazie Dashboard, 4x2, on API 31+. See widget_quick_connect_info.xml for what this adds and why the
+     preview is a PNG rendered from the real widget rather than a hand-written previewLayout. -->
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/widget_dashboard_description"
+    android:initialLayout="@layout/glance_default_loading_layout"
+    android:maxResizeHeight="215dp"
+    android:maxResizeWidth="420dp"
+    android:minHeight="110dp"
+    android:minResizeHeight="110dp"
+    android:minResizeWidth="180dp"
+    android:minWidth="250dp"
+    android:previewImage="@drawable/widget_preview_dashboard"
+    android:resizeMode="horizontal|vertical"
+    android:targetCellHeight="2"
+    android:targetCellWidth="4"
+    android:updatePeriodMillis="0"
+    android:widgetCategory="home_screen" />

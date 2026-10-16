@@ -1,0 +1,29 @@
+Vazie VPN is a VPN client for the VLESS protocol. It connects your phone to a server you already have — your own or your provider's — through an encrypted tunnel. The app comes with no servers of its own.
+
+YOUR OWN CONFIGURATIONS
+• Add a VLESS link by pasting it from the clipboard.
+• Or a subscription link: Vazie VPN adds every configuration in it at once.
+• REALITY and TLS, over TCP, WebSocket and gRPC.
+• Configurations stay on the device, encrypted with a key held in the Android Keystore. They are never uploaded.
+• The latency to each server is shown in the list.
+
+CONNECTION
+• Connect and disconnect with one tap; a notification shows the tunnel's state and has a disconnect button.
+• Split tunneling: send every app through the VPN, every app except the ones you choose, or only the ones you choose.
+
+ALWAYS AT HAND
+• Two home-screen widgets, in light and dark.
+• A Quick Settings tile.
+• Your recent configurations as app shortcuts.
+
+ABOUT DATA
+• No account and no sign-up.
+• No ads, no analytics, no crash-reporting or tracking libraries.
+• No log of the sites you visit.
+
+DESIGN
+Two themes — Milk and Night Indigo — ten app icons, English and Russian.
+
+A VPN changes who can see your traffic; it does not make you anonymous.
+
+Vazie VPN is made by one person, Vazovsky. Questions and support: support@vazie.app

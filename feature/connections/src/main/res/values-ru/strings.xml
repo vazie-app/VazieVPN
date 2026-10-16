@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="connections_title">Подключения</string>
+    <string name="connections_my_configs">Мои конфигурации</string>
+    <string name="connections_add">+ Добавить</string>
+    <string name="connections_empty_title">Пока пусто</string>
+    <string name="connections_empty_body">Добавьте конфигурацию от провайдера VPN или со своего сервера — Vazie VPN будет хранить её здесь.</string>
+
+    <string name="connections_details">Детали</string>
+
+
+    <string name="connections_status_connected">Подключено</string>
+    <string name="connections_status_selected">Выбрана</string>
+    <string name="connections_status_idle">Готова</string>
+    <string name="connections_status_error">Ошибка</string>
+    <string name="connections_status_unavailable">Не запустится</string>
+
+
+    <string name="connections_add_configuration">Добавить конфигурацию</string>
+    <string name="connections_delete">Удалить</string>
+    <string name="connections_delete_title">Удалить конфигурацию?</string>
+    <string name="connections_delete_body">«%1$s» исчезнет с этого устройства. Если исходная ссылка сохранилась, её можно импортировать снова; если нет — отменить это будет нельзя.</string>
+    <string name="connections_delete_confirm">Удалить</string>
+    <string name="connections_delete_cancel">Оставить</string>
+    <string name="connections_latency_ms">%1$d мс</string>
+    <string name="connections_latency_no_answer">нет ответа</string>
+    <string name="connections_latency_a11y">Отклик сервера: %1$d мс</string>
+    <string name="connections_latency_no_answer_a11y">Сервер не отвечает</string>
+</resources>

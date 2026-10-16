@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Onboarding, in four pages, narrated by Vazi. -->
+<resources>
+    <string name="onboarding_skip">Skip</string>
+    <string name="onboarding_next">Next</string>
+    <string name="onboarding_add_config">Add a configuration</string>
+    <string name="onboarding_start">Start using Vazie VPN</string>
+    <string name="onboarding_page_indicator">Page %1$d of %2$d</string>
+
+    <string name="onboarding_welcome_title">Hi, I\'m Vazi</string>
+    <string name="onboarding_welcome_body">I look after the tunnel in this app. I\'ll be on the home screen telling you whether you\'re protected, and I\'ll be sleeping when you\'re not. Give me thirty seconds and I\'ll show you around.</string>
+
+    <string name="onboarding_what_title">What Vazie VPN is</string>
+    <string name="onboarding_what_body">A VPN client: it opens an encrypted tunnel between this phone and a server, so the network you are on sees traffic to that server and nothing about where it goes next. Vazie VPN is the client. It is not a service that watches over you.</string>
+
+
+    <string name="onboarding_own_title">You bring the server</string>
+    <string name="onboarding_own_body">Vazie VPN ships with no servers, so the first thing to do is paste a VLESS link you already have. It is stored encrypted on this device and never uploaded — not to us, not to anyone. There is no account to create and nothing to pay for.</string>
+
+    <!-- The last page hands off to the tour that is about to run, and no longer defers to a screen. -->
+    <string name="onboarding_reach_title">Vazie VPN without opening the app</string>
+    <string name="onboarding_reach_body">Two home-screen widgets, a Quick Settings tile in your pull-down panel, and your configurations under the app icon when you hold it. Nothing to set up right now — I\'ll point out the basics in a moment.</string>
+
+    <!-- Prices are the backend's, formatted in the app: none is written here. %1$s is a price per month. -->
+</resources>

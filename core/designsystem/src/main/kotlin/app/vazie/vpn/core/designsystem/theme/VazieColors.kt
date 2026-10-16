@@ -1,0 +1,201 @@
+package app.vazie.vpn.core.designsystem.theme
+
+import androidx.compose.runtime.Immutable
+import androidx.compose.ui.graphics.Color
+
+/** Vazie semantic colour roles, in the one palette the "Маршрут" design has: Night Indigo. */
+@Immutable
+data class VazieColors(
+    val background: Color,
+    val surface: Color,
+    val elevated: Color,
+    val primary: Color,
+
+    /** Content drawn on the [primary] fill — a filled button's label, a switch thumb on its track. */
+    val onPrimary: Color,
+
+    val secondary: Color,
+    val accent: Color,
+    val textPrimary: Color,
+    val textSecondary: Color,
+    val success: Color,
+    val warning: Color,
+    val error: Color,
+    val border: Color,
+    val disabled: Color,
+    val scrim: Color,
+
+    /** The snackbar surface: inverted relative to the appearance, not fixed dark. */
+    val inverseSurface: Color,
+    val onInverseSurface: Color,
+    val inverseAccent: Color,
+
+    val primaryText: Color,
+    val successText: Color,
+    val warningText: Color,
+    val errorText: Color,
+    val surfaceMuted: Color,
+    val onSurfaceMuted: Color,
+    val engineBadgeFg: Color,
+    val accentContainer: Color,
+    val onAccentContainer: Color,
+    val errorContainer: Color,
+    val onErrorContainer: Color,
+    val warningContainer: Color,
+    val onWarningContainer: Color,
+    val dividerSubtle: Color,
+    val segmentedTrack: Color,
+    val fieldDisabledBg: Color,
+    val textDisabled: Color,
+    val statusDotIdle: Color,
+    val primaryPressed: Color,
+    val technicalSurface: Color,
+    val technicalSurfaceAlt: Color,
+    val technicalLabel: Color,
+    val technicalValue: Color,
+    val technicalValueAccent: Color,
+    val technicalDivider: Color,
+    val technicalBadgeBg: Color,
+
+    /** Text that recedes further than [textSecondary]: timestamps, hints, the second line of a secondary
+     * fact. Still meets WCAG AA on [background] and [surface]. */
+    val textMuted: Color,
+
+    /** The route gradient, the only one in the system, shown only while connected. [routeSoft] is its
+     * fill. */
+    val routeStart: Color,
+    val routeEnd: Color,
+    val routeSoft: Color,
+
+    /** The one colour a person acts with: the primary button. Cream, as in Vazie Keep — indigo says what
+     * *is*, cream says what you can *do*. [onAction] is its label, [actionPressed] its pressed fill. */
+    val action: Color,
+    val onAction: Color,
+    val actionPressed: Color,
+
+    val successContainer: Color,
+    val onSuccessContainer: Color,
+    val isDark: Boolean,
+)
+
+/** Night Indigo — the palette of Vazie VPN. */
+internal val NightIndigoColors = VazieColors(
+    background = Color(0xFF0D1020),
+    surface = Color(0xFF151932),
+    elevated = Color(0xFF1C2142),
+    primary = Color(0xFF9DB0FF),
+    onPrimary = Color(0xFF0D1020),
+    secondary = Color(0xFFC9B6F2),
+    accent = Color(0xFFC9B6F2),
+    textPrimary = Color(0xFFEEF0FA),
+    textSecondary = Color(0xFFAAB0CF),
+    success = Color(0xFF9FD8B8),
+    warning = Color(0xFFE8C47C),
+    error = Color(0xFFF0A77F),
+    border = Color(0xFF323969),
+    disabled = Color(0xFF232848),
+    scrim = Color(0xFF05060D),
+    inverseSurface = Color(0xFFEEF0FA),
+    onInverseSurface = Color(0xFF151932),
+    inverseAccent = Color(0xFF4A5BC4),
+    primaryText = Color(0xFF9DB0FF),
+    successText = Color(0xFF9FD8B8),
+    warningText = Color(0xFFE8C47C),
+    errorText = Color(0xFFF0A77F),
+    surfaceMuted = Color(0xFF262C54),
+    onSurfaceMuted = Color(0xFFAAB0CF),
+    engineBadgeFg = Color(0xFFDCE2FF),
+    accentContainer = Color(0xFF2B3163),
+    onAccentContainer = Color(0xFFDCE2FF),
+    errorContainer = Color(0xFF3A2620),
+    onErrorContainer = Color(0xFFF7CDB5),
+    warningContainer = Color(0xFF33291A),
+    onWarningContainer = Color(0xFFF1DDB3),
+    dividerSubtle = Color(0xFF262C54),
+    segmentedTrack = Color(0xFF1C2142),
+    fieldDisabledBg = Color(0xFF171A2E),
+    textDisabled = Color(0xFF5B6186),
+    statusDotIdle = Color(0xFF8A91B4),
+    primaryPressed = Color(0xFF8497EB),
+    technicalSurface = Color(0xFF151932),
+    technicalSurfaceAlt = Color(0xFF1C2142),
+    technicalLabel = Color(0xFF8A91B4),
+    technicalValue = Color(0xFFEEF0FA),
+    technicalValueAccent = Color(0xFFDCE2FF),
+    technicalDivider = Color(0xFF262C54),
+    technicalBadgeBg = Color(0xFF2B3163),
+    textMuted = Color(0xFF8A91B4),
+    routeStart = Color(0xFF9DB0FF),
+    routeEnd = Color(0xFFC9B6F2),
+    routeSoft = Color(0xFF2B3163),
+    action = Color(0xFFF1E3C8),
+    onAction = Color(0xFF241C14),
+    actionPressed = Color(0xFFE2D2B3),
+    successContainer = Color(0xFF1E3228),
+    onSuccessContainer = Color(0xFFE6F2EA),
+    isDark = true,
+)
+
+/** Milk — the light palette of the "Маршрут" design. */
+internal val MilkColors = VazieColors(
+    background = Color(0xFFFAF8F4),
+    surface = Color(0xFFFFFEFC),
+    elevated = Color(0xFFFFFFFF),
+    primary = Color(0xFF4A5BC4),
+    onPrimary = Color(0xFFFFFEFC),
+    secondary = Color(0xFF5D43A8),
+    accent = Color(0xFF5D43A8),
+    textPrimary = Color(0xFF171A2E),
+    textSecondary = Color(0xFF4E5470),
+    success = Color(0xFF2F7A55),
+    warning = Color(0xFF9A6B12),
+    error = Color(0xFFB4532A),
+    border = Color(0xFFE6E7F0),
+    disabled = Color(0xFFE6E7F0),
+    scrim = Color(0xFF171A2E),
+    inverseSurface = Color(0xFF171A2E),
+    onInverseSurface = Color(0xFFFAF8F4),
+    inverseAccent = Color(0xFF9DB0FF),
+    primaryText = Color(0xFF4A5BC4),
+    successText = Color(0xFF2A6E4C),
+    warningText = Color(0xFF85600F),
+    errorText = Color(0xFFA2461F),
+    surfaceMuted = Color(0xFFF0EFF4),
+    onSurfaceMuted = Color(0xFF4E5470),
+    engineBadgeFg = Color(0xFF1F2A6B),
+    accentContainer = Color(0xFFE4E7F8),
+    onAccentContainer = Color(0xFF1F2A6B),
+    errorContainer = Color(0xFFF8E4D8),
+    onErrorContainer = Color(0xFF6A2F14),
+    warningContainer = Color(0xFFF6EBCF),
+    onWarningContainer = Color(0xFF4F3A0B),
+    dividerSubtle = Color(0xFFECEBF2),
+    segmentedTrack = Color(0xFFF0EFF4),
+    fieldDisabledBg = Color(0xFFF3F2F6),
+    textDisabled = Color(0xFF8E93AB),
+    statusDotIdle = Color(0xFF646A86),
+    primaryPressed = Color(0xFF3D4DAE),
+    technicalSurface = Color(0xFFFFFEFC),
+    technicalSurfaceAlt = Color(0xFFF0EFF4),
+    technicalLabel = Color(0xFF646A86),
+    technicalValue = Color(0xFF171A2E),
+    technicalValueAccent = Color(0xFF1F2A6B),
+    technicalDivider = Color(0xFFE6E7F0),
+    technicalBadgeBg = Color(0xFFE4E7F8),
+    textMuted = Color(0xFF646A86),
+    routeStart = Color(0xFF4A5BC4),
+    routeEnd = Color(0xFF5D43A8),
+    routeSoft = Color(0xFFE4E7F8),
+    action = Color(0xFF1D1F3A),
+    onAction = Color(0xFFF6EEDD),
+    actionPressed = Color(0xFF2C2F52),
+    successContainer = Color(0xFFDDEFE4),
+    onSuccessContainer = Color(0xFF173D2A),
+    isDark = false,
+)
+
+/** The palette an [Appearance] paints with. */
+fun colorsFor(appearance: Appearance): VazieColors = when (appearance) {
+    Appearance.NIGHT_INDIGO -> NightIndigoColors
+    Appearance.MILK -> MilkColors
+}

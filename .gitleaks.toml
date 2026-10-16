@@ -1,0 +1,13 @@
+# gitleaks: the default rules, and two known non-secrets that look like secrets.
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "The SHA-256 pin of the libXray release: a public checksum, not a token"
+regexTarget = "line"
+regexes = ['''val libXraySha256 = "[0-9a-f]{64}"''']
+
+[[allowlists]]
+description = "A made-up key in the test that proves secrets are never printed"
+paths = ['''core/model/src/test/kotlin/app/vazie/vpn/core/model/SecretTest\.kt''']
