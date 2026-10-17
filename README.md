@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/assets/brand/vazie-app-icon.png" width="112" alt="Vazie VPN icon">
+<img src="docs/assets/brand/vazie-app-icon-rounded.png" width="112" alt="Vazie VPN icon">
 
 # Vazie VPN
 

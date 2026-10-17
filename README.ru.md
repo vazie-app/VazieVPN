@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/assets/brand/vazie-app-icon.png" width="112" alt="Значок Vazie VPN">
+<img src="docs/assets/brand/vazie-app-icon-rounded.png" width="112" alt="Значок Vazie VPN">
 
 # Vazie VPN
 
