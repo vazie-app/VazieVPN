@@ -28,7 +28,7 @@ immutableCollections = "0.5.1"
 glance = "1.1.1"
 
 # The HTTP client for the Vazie backend, only in `:core:network` (R14). Same line as the backend.
-ktor = "3.5.2"
+ktor = "3.6.0"
 
 # The on-device HTTP inspector, debug builds only.
 chucker = "4.2.0"
