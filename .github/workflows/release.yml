@@ -33,7 +33,7 @@ env:
   VAZIE_SITE_URL: https://vazie.app
   # The SHA-256 of the signing certificate every published Vazie VPN APK carries. A different key would make the
   # release impossible to install over an existing one, so a mismatch stops the build.
-  EXPECTED_CERT_SHA256: 5257d4bd2ff9f1acf4afd59f436bd0f05572a753ecd49742748029e6c48c922d
+  EXPECTED_CERT_SHA256: 970fbd4614aadaa171fb4c9aa58f6df0adad98c2c6d06252b5d3ad0d54f0a3aa
 
 jobs:
   release:
