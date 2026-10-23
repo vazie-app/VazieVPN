@@ -49,6 +49,10 @@ jobs:
           git diff --exit-code -- src/shared/i18n
 
       - name: Production build and package
+        env:
+          # the official addresses live in the release environment's secrets; this CI package only proves the build
+          VAZIE_API_URL: https://api.example.com/v1
+          VAZIE_SITE_URL: https://example.com
         run: |
           node scripts/build.mjs
           node scripts/package.mjs
@@ -93,7 +97,7 @@ jobs:
       - name: Audit the helper's crates
         if: runner.os == 'Linux'
         run: |
-          cargo install cargo-audit --locked --version 0.21.2
+          cargo install cargo-audit --locked --version 0.22.2
           cargo audit --deny warnings
 
       - name: "Build (macOS: a universal installer package, unsigned here)"
