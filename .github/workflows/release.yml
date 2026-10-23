@@ -84,14 +84,11 @@ jobs:
           VAZIE_KEYSTORE_PASSWORD: ${{ secrets.VAZIE_KEYSTORE_PASSWORD }}
           VAZIE_KEY_ALIAS: ${{ secrets.VAZIE_KEY_ALIAS }}
           VAZIE_KEY_PASSWORD: ${{ secrets.VAZIE_KEY_PASSWORD }}
-        run: >
-          ./gradlew --no-daemon
-          check
-          :app:assembleRelease
-          :app:lintRelease
-          :app:checkReleaseGraph
-          :app:checkReleaseArtifact
-          :app:bundleRelease
+        # Two invocations: with `bundle` among the tasks the build turns the per-ABI split off (see `splits` in
+        # app/build.gradle.kts), and the release would carry the universal APK only.
+        run: |
+          ./gradlew --no-daemon check :app:assembleRelease :app:lintRelease :app:checkReleaseGraph :app:checkReleaseArtifact
+          ./gradlew --no-daemon :app:bundleRelease
 
       - name: Remove the keystore
         if: always()
