@@ -1,0 +1,85 @@
+{
+  "group": "unsupported",
+  "vectors": [
+    {
+      "name": "a-transport-vazie-has-no-support-for-is-named",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?type=kcp",
+      "expect": {
+        "kind": "unsupported",
+        "protocol": "vless",
+        "feature": "transport",
+        "value": "kcp"
+      }
+    },
+    {
+      "name": "the-xhttp-transport-is-named",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?type=xhttp",
+      "expect": {
+        "kind": "unsupported",
+        "protocol": "vless",
+        "feature": "transport",
+        "value": "xhttp"
+      }
+    },
+    {
+      "name": "the-quic-transport-is-named",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?type=quic",
+      "expect": {
+        "kind": "unsupported",
+        "protocol": "vless",
+        "feature": "transport",
+        "value": "quic"
+      }
+    },
+    {
+      "name": "a-security-mode-vazie-has-no-support-for-is-named",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?security=xtls&flow=xtls-rprx-direct",
+      "expect": {
+        "kind": "unsupported",
+        "protocol": "vless",
+        "feature": "security",
+        "value": "xtls"
+      }
+    },
+    {
+      "name": "a-flow-vazie-has-no-support-for-is-named",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?security=tls&flow=xtls-rprx-vision-udp443",
+      "expect": {
+        "kind": "unsupported",
+        "protocol": "vless",
+        "feature": "flow",
+        "value": "xtls-rprx-vision-udp443"
+      }
+    },
+    {
+      "name": "vless-encryption-other-than-none-is-recognised-and-unsupported",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?encryption=mlkem768x25519plus",
+      "expect": {
+        "kind": "unsupported",
+        "protocol": "vless",
+        "feature": "encryption",
+        "value": "mlkem768x25519plus"
+      }
+    },
+    {
+      "name": "security-is-answered-before-transport",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?security=xtls&type=kcp",
+      "expect": {
+        "kind": "unsupported",
+        "protocol": "vless",
+        "feature": "security",
+        "value": "xtls"
+      }
+    },
+    {
+      "name": "encryption-is-answered-before-security",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?encryption=mlkem768x25519plus&security=xtls",
+      "expect": {
+        "kind": "unsupported",
+        "protocol": "vless",
+        "feature": "encryption",
+        "value": "mlkem768x25519plus"
+      }
+    }
+  ]
+}

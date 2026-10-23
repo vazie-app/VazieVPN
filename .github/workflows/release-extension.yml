@@ -1,0 +1,153 @@
+name: Release files (browser extension and helper)
+
+# Builds the browser extension and the helper's installers from this repository's source and adds them to an
+# existing GitHub Release (for 1.0.0: `v1.0.0`, the release the Android app is in), next to its APKs. Started by hand:
+# Actions → this workflow → Run workflow, naming the release tag. It does not create a release, does not touch the
+# release's other files except `SHA256SUMS.txt`, to which it adds its own lines, and uses no secret (the installers
+# are unsigned; see docs/install). The extension is built with the version in apps/browser-extension/package.json,
+# which must be the tag's version: the extension links to the helper files of that release.
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: The existing release to add the files to, e.g. v1.0.0
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-extension-${{ inputs.tag }}
+  cancel-in-progress: false
+
+env:
+  TAG: ${{ inputs.tag }}
+
+jobs:
+  extension:
+    name: Extension
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    environment: release
+    env:
+      VAZIE_API_URL: ${{ secrets.VAZIE_API_URL }}
+      VAZIE_SITE_URL: ${{ secrets.VAZIE_SITE_URL }}
+    defaults:
+      run:
+        working-directory: apps/browser-extension
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: apps/browser-extension/package-lock.json
+
+      - name: The tag is the extension's version
+        run: |
+          version="$(node -p "require('./package.json').version")"
+          [ "$TAG" = "v$version" ] || { echo "::error::$TAG is not v$version, the extension's version"; exit 1; }
+
+      - run: npm ci
+      - run: npm run check
+      - name: Store build and package
+        run: node scripts/package.mjs
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: extension
+          path: apps/browser-extension/dist/*.zip
+          if-no-files-found: error
+
+  helper:
+    name: "Helper: ${{ matrix.os }}"
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    strategy:
+      fail-fast: true
+      matrix:
+        include:
+          # The names are what the extension's Helper screen links to (shared/config.ts `helperInstaller`).
+          - os: ubuntu-24.04
+            asset: vazie-vpn-helper-linux-x64
+            binary: target/release/vazie-vpn-host
+          - os: macos-14
+            asset: VazieVPNHelper.pkg
+            binary: target/pkg/VazieVPNHelper.pkg
+          - os: windows-2025
+            asset: vazie-vpn-helper-windows-x64.exe
+            binary: target/release/vazie-vpn-host.exe
+    defaults:
+      run:
+        shell: bash
+        working-directory: apps/native-host
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - run: cargo test --locked
+
+      - name: "Build (macOS: a universal installer package)"
+        if: runner.os == 'macOS'
+        run: |
+          rustup target add x86_64-apple-darwin aarch64-apple-darwin
+          packaging/macos/build-pkg.sh
+      - name: Build
+        if: runner.os != 'macOS'
+        run: cargo build --release --locked
+
+      - run: |
+          mkdir -p out
+          cp "${{ matrix.binary }}" "out/${{ matrix.asset }}"
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: helper-${{ matrix.os }}
+          path: apps/native-host/out/*
+          if-no-files-found: error
+
+  upload:
+    name: Add the files to the release
+    needs: [extension, helper]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          path: files
+          merge-multiple: true
+
+      - name: Checksums and upload
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          version="${TAG#v}"
+          gh release view "$TAG" --repo "$GITHUB_REPOSITORY" --json isDraft --jq '.isDraft' | grep -qx false \
+            || { echo "::error::release $TAG does not exist or is a draft"; exit 1; }
+
+          # The install guides are the repository's docs, uploaded under the names a release page links to.
+          cp docs/install/README.en.md files/README.en.md
+          cp docs/install/README.ru.md files/README.ru.md
+
+          # The release's own SHA256SUMS.txt stays; this adds the lines for the files below.
+          mkdir -p old
+          gh release download "$TAG" --repo "$GITHUB_REPOSITORY" --pattern SHA256SUMS.txt --dir old
+          ( cd files
+            sha256sum vazie-vpn-*.zip vazie-vpn-helper-* VazieVPNHelper.pkg > ../new-sums.txt )
+          # Lines of an earlier run of this workflow are replaced, not repeated.
+          grep -v -E '  (vazie-vpn-.*-chromium\.zip|vazie-vpn-helper-.*|VazieVPNHelper\.pkg)$' old/SHA256SUMS.txt > files/SHA256SUMS.txt || true
+          cat new-sums.txt >> files/SHA256SUMS.txt
+          cat files/SHA256SUMS.txt
+
+          gh release upload "$TAG" files/* --repo "$GITHUB_REPOSITORY" --clobber

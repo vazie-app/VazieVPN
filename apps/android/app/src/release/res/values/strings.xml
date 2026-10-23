@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tour_done_body">Your configurations and connection controls are ready. The guides explain import, notifications, and launcher shortcuts whenever you need them.</string>
+</resources>

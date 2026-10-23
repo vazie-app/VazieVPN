@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The Deep plate: the canonical Vazie gradient and the default for dark appearances. Colours:
+     values/ic_launcher_plates.xml. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <gradient
+        android:angle="315"
+        android:centerColor="@color/ic_launcher_plate_deep_center"
+        android:endColor="@color/ic_launcher_plate_deep_end"
+        android:startColor="@color/ic_launcher_plate_deep_start"
+        android:type="linear" />
+</shape>

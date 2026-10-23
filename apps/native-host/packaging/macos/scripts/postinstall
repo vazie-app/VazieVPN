@@ -1,0 +1,17 @@
+#!/bin/bash
+# Runs as root at the end of the installation. The helper belongs to the person who is sitting at the computer, not
+# to root, so it is run as them: it copies itself into their Library, finds the Vazie VPN extension in their
+# browsers, registers with them and downloads the engine.
+set -u
+
+USER_NAME="$(/usr/bin/stat -f%Su /dev/console 2>/dev/null || true)"
+if [ -z "$USER_NAME" ] || [ "$USER_NAME" = "root" ] || [ "$USER_NAME" = "loginwindow" ]; then
+  exit 0
+fi
+HOME_DIR="$(/usr/bin/dscl . -read "/Users/$USER_NAME" NFSHomeDirectory 2>/dev/null | /usr/bin/awk '{print $2}')"
+[ -d "$HOME_DIR" ] || exit 0
+
+LOG="/tmp/vazie-vpn-helper-install.log"
+/usr/bin/sudo -u "$USER_NAME" /usr/bin/env HOME="$HOME_DIR" /usr/local/libexec/vazie-vpn/vazie-vpn-host install --quiet >"$LOG" 2>&1
+# A failure here is not the installation's failure: the extension says what is missing and offers to retry.
+exit 0

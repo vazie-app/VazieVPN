@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Launcher icon: **Pearl** (the primary mark in pearl) on the **Ink** plate - its signature pairing. -->
+<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
+    <background android:drawable="@drawable/ic_launcher_plate_ink" />
+    <foreground android:drawable="@mipmap/ic_launcher_pearl_foreground" />
+</adaptive-icon>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Android Lint's opinions about this module, and the one place they are overruled. -->
+<lint>
+    <!-- Scoped to the resource directory, because that is where lint reports this issue. -->
+    <issue id="IconMissingDensityFolder">
+        <ignore path="src/main/res" />
+    </issue>
+</lint>

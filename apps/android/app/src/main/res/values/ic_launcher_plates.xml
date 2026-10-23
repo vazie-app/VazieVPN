@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The three approved launcher plates, as the colours they are made of. -->
+<resources>
+    <color name="ic_launcher_plate_deep_start">#FF4A1585</color>
+    <color name="ic_launcher_plate_deep_center">#FF25115E</color>
+    <color name="ic_launcher_plate_deep_end">#FF071A3A</color>
+
+    <color name="ic_launcher_plate_light_start">#FFF6F3FC</color>
+    <color name="ic_launcher_plate_light_end">#FFE7E1F4</color>
+
+    <color name="ic_launcher_plate_ink_fill">#FF12111A</color>
+
+    <!-- Forest and Rose are derived, not invented: the Orbit-to-Deep transform applied to a mark's mean colour. -->
+    <color name="ic_launcher_plate_forest_start">#FF005523</color>
+    <color name="ic_launcher_plate_forest_center">#FF0C3A00</color>
+    <color name="ic_launcher_plate_forest_end">#FF172B00</color>
+
+    <color name="ic_launcher_plate_rose_start">#FF760037</color>
+    <color name="ic_launcher_plate_rose_center">#FF4D002D</color>
+    <color name="ic_launcher_plate_rose_end">#FF3A0128</color>
+
+    <!-- Amber and Mist: the same derivation from the gold and pearl marks. -->
+    <color name="ic_launcher_plate_amber_start">#FF453900</color>
+    <color name="ic_launcher_plate_amber_center">#FF342000</color>
+    <color name="ic_launcher_plate_amber_end">#FF251605</color>
+
+    <color name="ic_launcher_plate_mist_start">#FF7D6990</color>
+    <color name="ic_launcher_plate_mist_center">#FF4D4A57</color>
+    <color name="ic_launcher_plate_mist_end">#FF3A3A3A</color>
+
+    <!-- The flat mark's two inks. Paper on a dark plate, `ic_launcher_plate_ink_fill` on a light one - the
+         same two colours swapped, which is why only one of them needs declaring here. -->
+    <color name="ic_launcher_mark_paper_fill">#FFF7F4FF</color>
+</resources>

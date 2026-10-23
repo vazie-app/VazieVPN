@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="vazie_a11y_busy">Идёт загрузка</string>
+    <string name="vazie_a11y_value_hidden">Значение скрыто</string>
+    <string name="vazie_a11y_value_shown">Значение показано</string>
+    <string name="vazie_a11y_value_valid">Проверено</string>
+    <string name="vazie_a11y_vazovsky_sticker">Рисунок Vazovsky, автора Vazie VPN</string>
+</resources>

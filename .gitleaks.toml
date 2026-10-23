@@ -1,0 +1,18 @@
+# gitleaks: the default rules, and two known non-secrets that look like secrets.
+
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "The SHA-256 pin of the libXray release: a public checksum, not a token"
+regexTarget = "line"
+regexes = ['''val libXraySha256 = "[0-9a-f]{64}"''']
+
+[[allowlists]]
+description = "A made-up key in the test that proves secrets are never printed"
+paths = ['''(apps/android/)?core/model/src/test/kotlin/app/vazie/vpn/core/model/SecretTest\.kt''']
+
+[[allowlists]]
+description = "The public half of the browser extension's development key: a public key that pins the extension id, not a secret"
+paths = ['''apps/browser-extension/src/manifest\.ts''']
+regexes = ['''MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA[A-Za-z0-9+/=]+''']

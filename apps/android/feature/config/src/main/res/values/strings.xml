@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="config_method_title">Add configuration</string>
+    <string name="config_close">Close</string>
+    <string name="config_back">Back</string>
+
+
+    <string name="config_preview_title">Detected</string>
+    <string name="config_paste_title">Paste your configuration link</string>
+    <string name="config_paste_body">Tap Paste and Vazie VPN will read what is on your clipboard. It reads it here, on your device, and it goes nowhere else. A subscription link is the one exception: it is opened, to download its list.</string>
+    <string name="config_detection_waiting">Waiting for a link</string>
+    <string name="config_detection_unsupported">Not supported yet</string>
+    <string name="config_detection_invalid">Couldn\'t read this</string>
+    <string name="config_detection_subscription">Subscription</string>
+
+    <!-- A subscription link: an https address that answers with a list of configuration links. %1$s is
+         the address's host, the only part of it that is ever shown. -->
+    <string name="config_subscription_loading">Downloading the list of configurations from %1$s…</string>
+    <plurals name="config_subscription_found">
+        <item quantity="one">%d configuration in this subscription</item>
+        <item quantity="other">%d configurations in this subscription</item>
+    </plurals>
+    <plurals name="config_subscription_skipped">
+        <item quantity="one">%d more link was left out: Vazie VPN can\'t read it yet.</item>
+        <item quantity="other">%d more links were left out: Vazie VPN can\'t read them yet.</item>
+    </plurals>
+    <plurals name="config_subscription_truncated">
+        <item quantity="one">The list is longer. Vazie VPN adds the first %d at a time.</item>
+        <item quantity="other">The list is longer. Vazie VPN adds the first %d at a time.</item>
+    </plurals>
+    <string name="config_subscription_once">The list is downloaded once. If the subscription changes, add its link again.</string>
+    <string name="config_subscription_insecure">This subscription link starts with http. Vazie VPN downloads a subscription only over https, so nobody on the way can read it.</string>
+    <string name="config_subscription_unreachable">Couldn\'t reach %1$s. Check your connection and try again.</string>
+    <string name="config_subscription_refused">%1$s didn\'t give the list. The link may be mistyped or no longer valid.</string>
+    <string name="config_subscription_too_large">What %1$s sent back is too large to be a list of configurations.</string>
+    <string name="config_subscription_empty">There is nothing at this link that Vazie VPN can read as a configuration.</string>
+    <plurals name="config_action_add_all">
+        <item quantity="one">Add %d configuration</item>
+        <item quantity="other">Add %d configurations</item>
+    </plurals>
+    <plurals name="config_done_many_title">
+        <item quantity="one">%d configuration added</item>
+        <item quantity="other">%d configurations added</item>
+    </plurals>
+
+    <string name="config_unsupported_security">Vazie VPN understands this VLESS link, but %1$s security isn\'t supported yet.</string>
+    <string name="config_unsupported_transport">Vazie VPN understands this VLESS link, but the %1$s transport isn\'t supported yet.</string>
+    <string name="config_unsupported_flow">Vazie VPN understands this VLESS link, but the %1$s flow isn\'t supported yet.</string>
+    <string name="config_unsupported_encryption">Vazie VPN understands this VLESS link, but VLESS encryption (%1$s) isn\'t supported yet.</string>
+
+    <string name="config_invalid_empty">There was nothing to read — the clipboard is empty.</string>
+    <string name="config_invalid_not_a_link">This doesn\'t look like a VLESS link.</string>
+    <string name="config_invalid_other_scheme">Vazie VPN reads VLESS links; this one is %1$s.</string>
+    <string name="config_invalid_malformed">This VLESS link isn\'t written the way one should be.</string>
+    <string name="config_invalid_missing_user_id">The VLESS link has no user ID in it.</string>
+    <string name="config_invalid_malformed_user_id">The VLESS user ID isn\'t valid.</string>
+    <string name="config_invalid_missing_host">The server address is missing.</string>
+    <string name="config_invalid_malformed_host">The server address isn\'t a hostname or an IP address.</string>
+    <string name="config_invalid_missing_port">The server port is missing.</string>
+    <string name="config_invalid_port">The server port isn\'t a number between 1 and 65535.</string>
+    <string name="config_invalid_encoding">Part of this link is encoded incorrectly, so Vazie VPN can\'t tell what it says.</string>
+    <string name="config_invalid_missing_reality_key">This REALITY configuration is missing its public key.</string>
+    <string name="config_invalid_missing_parameter">This link is missing a parameter it needs: %1$s.</string>
+    <string name="config_invalid_conflicting">These parts of the link contradict each other: %1$s.</string>
+
+    <string name="config_review_title">Review &amp; name</string>
+    <string name="config_review_secrets_note">Keys and passwords stay hidden until you tap to reveal them, and never leave this device.</string>
+    <string name="config_review_kept_title">Kept as-is: %1$s</string>
+    <string name="config_review_kept_body">Vazie VPN doesn\'t recognise these parameters and saved them unchanged.</string>
+    <string name="config_name_placeholder">Give it a name</string>
+
+    <string name="config_field_protocol">Protocol</string>
+    <string name="config_field_transport">Transport</string>
+    <string name="config_field_server">Server</string>
+    <string name="config_field_sni">SNI</string>
+    <string name="config_field_fingerprint">Fingerprint</string>
+    <string name="config_field_flow">Flow</string>
+    <string name="config_field_name">Name</string>
+    <string name="config_field_last_used">Last used</string>
+    <!-- What a read-out shows where the link carried no value. A dash, never a zero and never a blank
+         row: the field exists, this configuration simply does not set it. -->
+
+    <string name="config_action_continue">Continue</string>
+    <string name="config_action_paste">Paste from clipboard</string>
+    <string name="config_action_save">Save configuration</string>
+    <string name="config_action_done">Done</string>
+    <string name="config_action_rename">Rename</string>
+    <string name="config_action_duplicate">Duplicate</string>
+    <string name="config_action_export">Export</string>
+    <string name="config_action_delete">Delete</string>
+
+    <string name="config_done_title">%1$s added</string>
+    <string name="config_done_body">Saved to this device only — always free.</string>
+
+    <string name="config_details_missing">This configuration is no longer on this device.</string>
+    <string name="config_secret_show">Show</string>
+    <string name="config_secret_hide">Hide</string>
+
+    <!-- When a configuration last carried traffic. -->
+    <string name="config_last_used_never">Never</string>
+    <string name="config_last_used_just_now">Just now</string>
+    <string name="config_last_used_today">Today at %1$s</string>
+    <string name="config_last_used_yesterday">Yesterday</string>
+    <string name="config_last_used_earlier">%1$s</string>
+
+    <string name="config_delete_title">Remove this config?</string>
+    <string name="config_delete_body">%1$s will be deleted from this device. This can\'t be undone.</string>
+    <string name="config_delete_confirm">Remove</string>
+    <string name="config_delete_cancel">Cancel</string>
+
+    <!-- Configuration management: rename, duplicate and export are harmless; delete stands apart. -->
+    <string name="config_section_configuration">Configuration</string>
+    <string name="config_section_credentials">Credentials</string>
+    <string name="config_section_actions">Actions</string>
+    <string name="config_section_danger">Delete</string>
+
+
+    <string name="config_rename_title">Rename</string>
+    <string name="config_rename_body">Only the name changes. The connection keeps working and nothing else about the configuration is touched.</string>
+    <string name="config_rename_confirm">Rename</string>
+    <string name="config_rename_cancel">Cancel</string>
+
+    <!-- "(copy)" is a marker a reader sees; where it goes in a name is a translator's call. -->
+    <string name="config_duplicate_name">%1$s (copy)</string>
+    <string name="config_duplicated">Copied. The duplicate is in your configurations.</string>
+
+    <!-- The export warning: an exported link is the credential itself. -->
+    <string name="config_export_title">Export this configuration?</string>
+    <string name="config_export_warning">The export contains the keys that connect to the server.</string>
+    <string name="config_export_body">Anyone who receives this link can use the server exactly as you do. Send it only to yourself or to somebody you would hand your password to.</string>
+    <string name="config_export_confirm">Share the link</string>
+    <string name="config_export_cancel">Cancel</string>
+    <string name="config_export_chooser">Send configuration</string>
+    <!-- The entry step, which answers "what can I give Vazie?" rather than "pick a method". -->
+    <string name="config_method_have_link">Have a link?</string>
+    <!-- %1$s is the format list, built from the parser registry. -->
+    <string name="config_method_reads">Put your %1$s link or a subscription link in the field, or tap the button beside it to take it from the clipboard.</string>
+    <string name="config_method_link_label">Link</string>
+    <string name="config_method_example_label">A link looks like this:</string>
+    <string name="config_method_example_a11y">An example of a configuration link</string>
+    <string name="config_method_unsure">Not sure what you have? Paste it anyway — if Vazie VPN doesn\'t recognise it, it will say so and won\'t try to guess.</string>
+    <string name="config_method_subscription">A subscription link works too: Vazie VPN opens it once to download its list of configurations. The request goes to that link\'s server and nowhere else.</string>
+    <string name="config_method_planned">For now Vazie VPN reads only %1$s, as one link or as a subscription. More formats are coming soon.</string>
+</resources>

@@ -1,0 +1,121 @@
+name: CI (browser extension and helper)
+
+# The extension's typecheck and tests (which include the shared link corpus), a production build and package, and the
+# helper's tests and release builds for each platform. Nothing here signs, publishes or reads a secret. The
+# real-browser tests (apps/browser-extension/tests/e2e) need a browser and a downloaded engine and are run by hand.
+
+on:
+  pull_request:
+    branches: [main]
+    paths: ['apps/browser-extension/**', 'apps/native-host/**', 'apps/android/**/strings.xml', 'shared/**', '.github/workflows/extension.yml']
+  push:
+    branches: [main]
+    paths: ['apps/browser-extension/**', 'apps/native-host/**', 'apps/android/**/strings.xml', 'shared/**', '.github/workflows/extension.yml']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: extension-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  extension:
+    name: "Extension: check, build, package"
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: apps/browser-extension
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: apps/browser-extension/package-lock.json
+
+      - run: npm ci
+      # Typecheck, then the tests: the shared vector corpus, the logic, and "every string in both languages".
+      - run: npm run check
+
+      # The words imported from Android must be what Android has now.
+      - name: Strings are in step with Android
+        run: |
+          node scripts/import-strings.mjs
+          git diff --exit-code -- src/shared/i18n
+
+      - name: Production build and package
+        run: |
+          node scripts/build.mjs
+          node scripts/package.mjs
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: vazie-vpn-extension
+          path: apps/browser-extension/dist/*.zip
+          retention-days: 14
+          if-no-files-found: error
+
+  helper:
+    name: "Helper: ${{ matrix.os }}"
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          # The names are what the extension's Helper screen links to (shared/config.ts `helperInstaller`).
+          - os: ubuntu-24.04
+            asset: vazie-vpn-helper-linux-x64
+            binary: target/release/vazie-vpn-host
+          - os: macos-14
+            asset: VazieVPNHelper.pkg
+            binary: target/pkg/VazieVPNHelper.pkg
+          - os: windows-2025
+            asset: vazie-vpn-helper-windows-x64.exe
+            binary: target/release/vazie-vpn-host.exe
+    defaults:
+      run:
+        shell: bash
+        working-directory: apps/native-host
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - run: cargo test --locked
+
+      # Known-vulnerable crates fail the build (the RustSec advisory database), on top of Dependabot's weekly updates.
+      - name: Audit the helper's crates
+        if: runner.os == 'Linux'
+        run: |
+          cargo install cargo-audit --locked --version 0.21.2
+          cargo audit --deny warnings
+
+      - name: "Build (macOS: a universal installer package, unsigned here)"
+        if: runner.os == 'macOS'
+        run: |
+          rustup target add x86_64-apple-darwin aarch64-apple-darwin
+          packaging/macos/build-pkg.sh
+      - name: Build
+        if: runner.os != 'macOS'
+        run: cargo build --release --locked
+
+      - name: Name and checksum the installer
+        run: |
+          mkdir -p out
+          cp "${{ matrix.binary }}" "out/${{ matrix.asset }}"
+          cd out
+          if command -v sha256sum >/dev/null; then sha256sum "${{ matrix.asset }}" > "${{ matrix.asset }}.sha256"; else shasum -a 256 "${{ matrix.asset }}" > "${{ matrix.asset }}.sha256"; fi
+          cat "${{ matrix.asset }}.sha256"
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: vazie-vpn-helper-${{ matrix.os }}
+          path: apps/native-host/out/*
+          retention-days: 14
+          if-no-files-found: error

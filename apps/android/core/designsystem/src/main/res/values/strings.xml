@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Accessibility labels owned by the design system. Visible product copy is passed in by callers. -->
+<resources>
+    <string name="vazie_a11y_busy">Busy</string>
+    <string name="vazie_a11y_value_hidden">Value hidden</string>
+    <string name="vazie_a11y_value_shown">Value shown</string>
+    <string name="vazie_a11y_value_valid">Verified</string>
+    <string name="vazie_a11y_vazovsky_sticker">A drawing of Vazovsky, who writes Vazie VPN</string>
+</resources>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The plate a launcher shortcut's glyph sits on. -->
+<resources>
+    <color name="ic_shortcut_background">#25115E</color>
+</resources>

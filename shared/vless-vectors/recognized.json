@@ -1,0 +1,386 @@
+{
+  "group": "recognized",
+  "vectors": [
+    {
+      "name": "bare-link-is-tcp-without-security",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "none",
+        "transport": "tcp",
+        "flow": null,
+        "serverName": null,
+        "fingerprint": null,
+        "suggestedName": null,
+        "unknownParameterNames": []
+      }
+    },
+    {
+      "name": "encryption-none-is-understood-not-preserved",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?encryption=none",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "none",
+        "transport": "tcp",
+        "unknownParameterNames": []
+      }
+    },
+    {
+      "name": "tls-over-tcp-reads-server-name-fingerprint-and-alpn",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?security=tls&sni=relay.example.net&fp=chrome&alpn=h2%2Chttp%2F1.1",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "tls",
+        "transport": "tcp",
+        "serverName": "relay.example.net",
+        "fingerprint": "chrome",
+        "alpn": [
+          "h2",
+          "http/1.1"
+        ],
+        "allowInsecure": false,
+        "unknownParameterNames": []
+      }
+    },
+    {
+      "name": "reality-over-tcp-with-vision-reads-every-parameter",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?security=reality&type=tcp&flow=xtls-rprx-vision&sni=relay.example.net&fp=chrome&pbk=not-a-real-reality-public-key-0000000000000&sid=0011223344556677&spx=%2F",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "reality",
+        "transport": "tcp",
+        "serverName": "relay.example.net",
+        "fingerprint": "chrome",
+        "flow": "xtls-rprx-vision",
+        "spiderX": "/",
+        "unknownParameterNames": []
+      }
+    },
+    {
+      "name": "websocket-reads-path-and-host-header",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?security=tls&type=ws&path=%2Fvazie&host=cdn.example.net&sni=relay.example.net",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "tls",
+        "transport": "ws",
+        "serverName": "relay.example.net",
+        "wsPath": "/vazie",
+        "wsHost": "cdn.example.net",
+        "unknownParameterNames": []
+      }
+    },
+    {
+      "name": "websocket-without-a-path-gets-the-default-one",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?type=ws",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "none",
+        "transport": "ws",
+        "wsPath": "/",
+        "wsHost": null
+      }
+    },
+    {
+      "name": "the-longer-spelling-of-websocket-is-accepted",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?type=websocket",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "none",
+        "transport": "ws"
+      }
+    },
+    {
+      "name": "grpc-reads-service-name-and-multi-mode",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?security=tls&type=grpc&serviceName=vazie&mode=multi",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "tls",
+        "transport": "grpc",
+        "grpcServiceName": "vazie",
+        "grpcMultiMode": true,
+        "unknownParameterNames": []
+      }
+    },
+    {
+      "name": "grpc-defaults-to-single-mode",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?type=grpc&serviceName=vazie",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "none",
+        "transport": "grpc",
+        "grpcServiceName": "vazie",
+        "grpcMultiMode": false
+      }
+    },
+    {
+      "name": "tcp-header-type-is-read",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?headerType=http",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "none",
+        "transport": "tcp",
+        "tcpHeaderType": "http",
+        "unknownParameterNames": []
+      }
+    },
+    {
+      "name": "an-ipv4-literal-is-a-host",
+      "input": "vless://00000000-0000-4000-8000-000000000001@192.0.2.10:443",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "192.0.2.10",
+        "port": 443,
+        "security": "none",
+        "transport": "tcp"
+      }
+    },
+    {
+      "name": "an-ipv6-literal-in-brackets-is-a-host",
+      "input": "vless://00000000-0000-4000-8000-000000000001@[2001:db8::1]:443",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "2001:db8::1",
+        "port": 443,
+        "security": "none",
+        "transport": "tcp"
+      }
+    },
+    {
+      "name": "the-lowest-port-is-a-port",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:1",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 1,
+        "security": "none",
+        "transport": "tcp"
+      }
+    },
+    {
+      "name": "the-highest-port-is-a-port",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:65535",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 65535,
+        "security": "none",
+        "transport": "tcp"
+      }
+    },
+    {
+      "name": "the-fragment-becomes-the-suggested-name-percent-decoded",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443#Home%20relay",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "none",
+        "transport": "tcp",
+        "suggestedName": "Home relay"
+      }
+    },
+    {
+      "name": "a-fragment-with-a-stray-percent-survives-as-typed",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443#100% relay",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "none",
+        "transport": "tcp",
+        "suggestedName": "100% relay"
+      }
+    },
+    {
+      "name": "no-fragment-means-no-suggested-name",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "none",
+        "transport": "tcp",
+        "suggestedName": null
+      }
+    },
+    {
+      "name": "an-empty-fragment-means-no-suggested-name",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443#",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "none",
+        "transport": "tcp",
+        "suggestedName": null
+      }
+    },
+    {
+      "name": "older-parameter-spellings-mean-the-fields-they-always-meant",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?security=reality&peer=relay.example.net&fingerprint=firefox&publicKey=not-a-real-reality-public-key-0000000000000&shortId=0011223344556677&spiderX=%2F",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "reality",
+        "transport": "tcp",
+        "serverName": "relay.example.net",
+        "fingerprint": "firefox",
+        "spiderX": "/",
+        "unknownParameterNames": []
+      }
+    },
+    {
+      "name": "security-and-transport-are-read-case-insensitively",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?security=TLS&type=WS",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "tls",
+        "transport": "ws"
+      }
+    },
+    {
+      "name": "flow-is-read-case-insensitively",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?security=tls&flow=XTLS-RPRX-VISION",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "tls",
+        "transport": "tcp",
+        "flow": "xtls-rprx-vision"
+      }
+    },
+    {
+      "name": "an-empty-security-falls-back-to-none",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?security=",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "none",
+        "transport": "tcp"
+      }
+    },
+    {
+      "name": "an-empty-transport-falls-back-to-tcp",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?type=",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "none",
+        "transport": "tcp"
+      }
+    },
+    {
+      "name": "whitespace-around-a-value-is-trimmed",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?security=%20tls%20&sni=%20relay.example.net%20",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "tls",
+        "transport": "tcp",
+        "serverName": "relay.example.net"
+      }
+    },
+    {
+      "name": "allow-insecure-accepts-one",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?security=tls&allowInsecure=1",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "tls",
+        "transport": "tcp",
+        "allowInsecure": true
+      }
+    },
+    {
+      "name": "allow-insecure-accepts-the-word-true",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?security=tls&insecure=true",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "tls",
+        "transport": "tcp",
+        "allowInsecure": true
+      }
+    },
+    {
+      "name": "allow-insecure-is-false-for-anything-else",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?security=tls&allowInsecure=yes",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "tls",
+        "transport": "tcp",
+        "allowInsecure": false
+      }
+    },
+    {
+      "name": "surrounding-whitespace-is-not-the-users-mistake-to-fix",
+      "input": "\n  vless://00000000-0000-4000-8000-000000000001@relay.example.net:443  \n",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "none",
+        "transport": "tcp"
+      }
+    }
+  ]
+}

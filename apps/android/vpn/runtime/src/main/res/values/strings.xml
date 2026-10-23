@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The only user-visible copy this module owns: the foreground notification. -->
+<resources>
+    <string name="vpn_notification_title">Vazie VPN</string>
+    <string name="vpn_notification_channel">VPN connection</string>
+    <string name="vpn_notification_channel_description">Shown while a tunnel is active.</string>
+    <string name="vpn_notification_disconnect">Disconnect</string>
+
+    <string name="vpn_state_idle">Disconnected</string>
+    <string name="vpn_state_preparing">Preparing…</string>
+    <string name="vpn_state_connecting">Connecting…</string>
+    <string name="vpn_state_connected">Connected</string>
+    <string name="vpn_state_disconnecting">Disconnecting…</string>
+    <string name="vpn_state_failed">Connection failed</string>
+    <string name="vpn_state_no_internet">No internet</string>
+</resources>

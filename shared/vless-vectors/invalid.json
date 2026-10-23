@@ -1,0 +1,205 @@
+{
+  "group": "invalid",
+  "vectors": [
+    {
+      "name": "empty-input",
+      "input": "",
+      "expect": {
+        "kind": "invalid",
+        "reason": "empty"
+      }
+    },
+    {
+      "name": "whitespace-only-input",
+      "input": "   \n ",
+      "expect": {
+        "kind": "invalid",
+        "reason": "empty"
+      }
+    },
+    {
+      "name": "another-protocols-link-is-named-by-its-scheme",
+      "input": "vmess://payload",
+      "expect": {
+        "kind": "invalid",
+        "reason": "unknownScheme",
+        "scheme": "vmess"
+      }
+    },
+    {
+      "name": "the-scheme-is-reported-lowercased",
+      "input": "HTTPS://relay.example.net/config",
+      "expect": {
+        "kind": "invalid",
+        "reason": "unknownScheme",
+        "scheme": "https"
+      }
+    },
+    {
+      "name": "text-that-is-not-a-uri-has-no-scheme-to-name",
+      "input": "just some text",
+      "expect": {
+        "kind": "invalid",
+        "reason": "unknownScheme",
+        "scheme": null
+      }
+    },
+    {
+      "name": "a-link-with-no-user-id-is-rejected",
+      "input": "vless://relay.example.net:443",
+      "expect": {
+        "kind": "invalid",
+        "reason": "missingUserID"
+      }
+    },
+    {
+      "name": "an-empty-user-id-is-rejected",
+      "input": "vless://@relay.example.net:443",
+      "expect": {
+        "kind": "invalid",
+        "reason": "missingUserID"
+      }
+    },
+    {
+      "name": "a-user-id-that-is-not-a-uuid-is-rejected",
+      "input": "vless://not-a-uuid@relay.example.net:443",
+      "expect": {
+        "kind": "invalid",
+        "reason": "malformedUserID"
+      }
+    },
+    {
+      "name": "a-broken-percent-escape-in-the-user-id-is-rejected",
+      "input": "vless://%zz@relay.example.net:443",
+      "expect": {
+        "kind": "invalid",
+        "reason": "malformedEncoding"
+      }
+    },
+    {
+      "name": "a-link-with-no-host-is-rejected",
+      "input": "vless://00000000-0000-4000-8000-000000000001@:443",
+      "expect": {
+        "kind": "invalid",
+        "reason": "missingHost"
+      }
+    },
+    {
+      "name": "a-host-that-is-not-a-name-or-an-address-is-rejected",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay example net:443",
+      "expect": {
+        "kind": "invalid",
+        "reason": "malformedHost"
+      }
+    },
+    {
+      "name": "a-bracketed-ipv4-literal-is-not-an-address",
+      "input": "vless://00000000-0000-4000-8000-000000000001@[192.0.2.10]:443",
+      "expect": {
+        "kind": "invalid",
+        "reason": "malformedHost"
+      }
+    },
+    {
+      "name": "an-unclosed-ipv6-bracket-is-a-malformed-uri",
+      "input": "vless://00000000-0000-4000-8000-000000000001@[2001:db8::1:443",
+      "expect": {
+        "kind": "invalid",
+        "reason": "malformedURI"
+      }
+    },
+    {
+      "name": "a-link-with-no-port-is-rejected",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net",
+      "expect": {
+        "kind": "invalid",
+        "reason": "missingPort"
+      }
+    },
+    {
+      "name": "an-empty-port-is-rejected",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:",
+      "expect": {
+        "kind": "invalid",
+        "reason": "missingPort"
+      }
+    },
+    {
+      "name": "a-port-above-the-range-is-rejected",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:99999",
+      "expect": {
+        "kind": "invalid",
+        "reason": "invalidPort"
+      }
+    },
+    {
+      "name": "a-port-of-zero-is-rejected",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:0",
+      "expect": {
+        "kind": "invalid",
+        "reason": "invalidPort"
+      }
+    },
+    {
+      "name": "a-port-that-is-not-a-number-is-rejected",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:https",
+      "expect": {
+        "kind": "invalid",
+        "reason": "invalidPort"
+      }
+    },
+    {
+      "name": "a-broken-percent-escape-in-the-query-is-rejected",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?security=tls&sni=%zz",
+      "expect": {
+        "kind": "invalid",
+        "reason": "malformedEncoding"
+      }
+    },
+    {
+      "name": "reality-without-a-public-key-names-the-parameter-it-needs",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?security=reality&sni=relay.example.net",
+      "expect": {
+        "kind": "invalid",
+        "reason": "missingParameter",
+        "parameter": "pbk"
+      }
+    },
+    {
+      "name": "reality-over-websocket-is-a-combination-no-server-can-serve",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?security=reality&type=ws&pbk=not-a-real-reality-public-key-0000000000000",
+      "expect": {
+        "kind": "invalid",
+        "reason": "conflictingParameters",
+        "parameters": [
+          "security",
+          "type"
+        ]
+      }
+    },
+    {
+      "name": "vision-without-tls-cannot-work",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?flow=xtls-rprx-vision",
+      "expect": {
+        "kind": "invalid",
+        "reason": "conflictingParameters",
+        "parameters": [
+          "flow",
+          "security"
+        ]
+      }
+    },
+    {
+      "name": "vision-over-a-transport-other-than-tcp-cannot-work",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?security=tls&type=ws&flow=xtls-rprx-vision",
+      "expect": {
+        "kind": "invalid",
+        "reason": "conflictingParameters",
+        "parameters": [
+          "flow",
+          "type"
+        ]
+      }
+    }
+  ]
+}

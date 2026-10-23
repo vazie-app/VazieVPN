@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="connections_title">Connections</string>
+    <string name="connections_my_configs">My configs</string>
+    <string name="connections_add">+ Add</string>
+    <string name="connections_empty_title">No configurations yet</string>
+    <string name="connections_empty_body">Add a configuration from your VPN provider or your own server, and Vazie VPN will keep it here.</string>
+
+    <string name="connections_details">Details</string>
+
+
+    <string name="connections_status_connected">Connected</string>
+    <string name="connections_status_selected">Selected</string>
+    <string name="connections_status_idle">Ready</string>
+    <string name="connections_status_error">Error</string>
+    <string name="connections_status_unavailable">Unavailable</string>
+
+
+    <!-- Vazie's own servers; a country without a configuration in this build shows "Soon". -->
+    <string name="connections_add_configuration">Add a configuration</string>
+    <string name="connections_delete">Delete</string>
+    <string name="connections_delete_title">Delete this configuration?</string>
+    <string name="connections_delete_body">%1$s will be removed from this device. If you have the original link you can import it again; if you do not, this cannot be undone.</string>
+    <string name="connections_delete_confirm">Delete</string>
+    <string name="connections_delete_cancel">Keep it</string>
+    <string name="connections_latency_ms">%1$d ms</string>
+    <string name="connections_latency_no_answer">no answer</string>
+    <string name="connections_latency_a11y">Server response: %1$d ms</string>
+    <string name="connections_latency_no_answer_a11y">Server does not respond</string>
+</resources>

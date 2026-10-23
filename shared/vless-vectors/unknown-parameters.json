@@ -1,0 +1,127 @@
+{
+  "group": "unknown-parameters",
+  "vectors": [
+    {
+      "name": "a-parameter-vazie-does-not-understand-is-kept",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?security=tls&packetEncoding=xudp&fragment=1%2C40-60",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "tls",
+        "transport": "tcp",
+        "unknownParameterNames": [
+          "packetEncoding",
+          "fragment"
+        ]
+      }
+    },
+    {
+      "name": "a-parameter-belonging-to-another-transport-is-kept-rather-than-misread",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?type=tcp&path=%2Fnot-a-tcp-thing",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "none",
+        "transport": "tcp",
+        "unknownParameterNames": [
+          "path"
+        ]
+      }
+    },
+    {
+      "name": "a-repeated-parameter-keeps-its-repeat",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?security=tls&sni=relay.example.net&sni=cdn.example.net",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "tls",
+        "transport": "tcp",
+        "serverName": "relay.example.net",
+        "unknownParameterNames": [
+          "sni"
+        ]
+      }
+    },
+    {
+      "name": "a-parameter-without-a-value-is-still-a-parameter",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?debug",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "none",
+        "transport": "tcp",
+        "unknownParameterNames": [
+          "debug"
+        ]
+      }
+    },
+    {
+      "name": "the-preferred-alias-wins-and-the-other-is-kept",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?security=tls&peer=cdn.example.net&sni=relay.example.net",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "tls",
+        "transport": "tcp",
+        "serverName": "relay.example.net",
+        "unknownParameterNames": [
+          "peer"
+        ]
+      }
+    },
+    {
+      "name": "the-preferred-fingerprint-alias-wins-and-the-other-is-kept",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?security=tls&fingerprint=firefox&fp=chrome",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "tls",
+        "transport": "tcp",
+        "fingerprint": "chrome",
+        "unknownParameterNames": [
+          "fingerprint"
+        ]
+      }
+    },
+    {
+      "name": "query-order-does-not-change-the-outcome-a",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?type=ws&security=tls&sni=relay.example.net",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "tls",
+        "transport": "ws",
+        "serverName": "relay.example.net",
+        "unknownParameterNames": []
+      }
+    },
+    {
+      "name": "query-order-does-not-change-the-outcome-b",
+      "input": "vless://00000000-0000-4000-8000-000000000001@relay.example.net:443?sni=relay.example.net&security=tls&type=ws",
+      "expect": {
+        "kind": "recognized",
+        "protocol": "vless",
+        "host": "relay.example.net",
+        "port": 443,
+        "security": "tls",
+        "transport": "ws",
+        "serverName": "relay.example.net",
+        "unknownParameterNames": []
+      }
+    }
+  ]
+}

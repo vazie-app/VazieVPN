@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_title">Settings</string>
+    <string name="settings_back">Back</string>
+
+    <!-- System integration. Each card is a surface Vazie already has and nothing in the app leads to: a tile
+         in the pull-down panel, a menu under the launcher icon, a card on the home screen. -->
+    <string name="guide_quick_settings_title">Connect from the pull-down panel</string>
+    <string name="guide_quick_settings_body">Vazie VPN has a Quick Settings tile: one tap to open or close the tunnel, without opening the app.</string>
+    <string name="guide_quick_settings_action">Add Quick Settings tile</string>
+    <string name="guide_quick_settings_manual">How to add it by hand</string>
+    <string name="guide_quick_settings_step_1">Pull the quick settings panel all the way down.</string>
+    <string name="guide_quick_settings_step_2">Tap edit — usually a pencil.</string>
+    <string name="guide_quick_settings_step_3">Find Vazie VPN among the tiles that are not in use.</string>
+    <string name="guide_quick_settings_step_4">Drag it up into the active tiles.</string>
+    <string name="guide_shortcuts_title">Your configurations under the icon</string>
+    <string name="guide_shortcuts_body">Holding the Vazie VPN icon offers your saved configurations directly. Nothing to set up — they are already there.</string>
+    <string name="guide_shortcuts_manual">How to use it</string>
+    <string name="guide_shortcuts_step_1">Hold the Vazie VPN icon on your home screen.</string>
+    <string name="guide_shortcuts_step_2">Let go on the configuration you want.</string>
+    <string name="guide_widgets_title">Vazie VPN on your home screen</string>
+    <string name="guide_widgets_body">Two widgets: Quick Connect, which is one button, and a Dashboard with the session read-out. The button below asks your launcher for Quick Connect — add the Dashboard from the widget list.</string>
+    <string name="guide_widgets_action">Add the Quick Connect widget</string>
+    <string name="guide_widgets_manual">How to add one by hand</string>
+    <string name="guide_widgets_step_1">Hold an empty spot on your home screen.</string>
+    <string name="guide_widgets_step_2">Open the widget list.</string>
+    <string name="guide_widgets_step_3">Find Vazie VPN. There are two.</string>
+    <string name="guide_widgets_step_4">Choose a size and drag it out.</string>
+    <string name="guide_widgets_step_5">For the Dashboard, find it in the same list and drag that one out too.</string>
+
+    <string name="settings_look_and_feel">Appearance</string>
+    <string name="settings_appearance">Appearance</string>
+    <string name="settings_appearance_title">Appearance</string>
+    <string name="settings_theme">Theme</string>
+    <string name="settings_app_icon">App icon</string>
+    <string name="settings_app_icon_body">Changes the icon on your home screen. Your configurations and any live connection are untouched; some launchers take a moment to catch up.</string>
+    <!-- Icon names are product names describing the character of each mark. -->
+    <string name="settings_app_icon_orbit">Orbit</string>
+    <!-- The colourways of the primary mark. Named for the colour, because the colour is the whole of what a
+         person is choosing: the shield, the orbit and the sparkle are identical in all of them. -->
+    <string name="settings_app_icon_lime">Lime</string>
+    <string name="settings_app_icon_emerald">Emerald</string>
+    <string name="settings_app_icon_magenta">Magenta</string>
+    <string name="settings_app_icon_cotton_candy">Cotton Candy</string>
+    <string name="settings_app_icon_crimson">Crimson</string>
+    <string name="settings_app_icon_gold">Gold</string>
+    <string name="settings_app_icon_pearl">Pearl</string>
+    <string name="settings_app_icon_onyx">Onyx</string>
+    <string name="settings_app_icon_monochrome">Monochrome</string>
+
+    <!-- The plate the mark stands on. Each mark offers only the plates it was checked against. -->
+    <string name="settings_app_icon_plate">Icon background</string>
+    <string name="settings_app_icon_themed_hint">If your phone recolours icons to match its theme (themed icons), Monochrome or Pearl on the Light background will look best.</string>
+    <string name="settings_app_icon_plate_deep">Deep</string>
+    <string name="settings_app_icon_plate_light">Light</string>
+    <string name="settings_app_icon_plate_ink">Ink</string>
+    <string name="settings_app_icon_plate_forest">Forest</string>
+    <string name="settings_app_icon_plate_rose">Rose</string>
+    <string name="settings_app_icon_plate_amber">Amber</string>
+    <string name="settings_app_icon_plate_mist">Mist</string>
+
+    <!-- Palette names are product names, not descriptions of a colour: they are not translated. -->
+    <string name="settings_appearance_night_indigo">Night Indigo</string>
+    <string name="settings_appearance_milk">Milk</string>
+
+
+    <string name="settings_vpn_behavior">Connection</string>
+    <string name="settings_split_tunneling">Split Tunneling</string>
+
+    <!-- Two groups: Support for when something is wrong, About for what this is. -->
+    <string name="settings_help_section">Help &amp; Support</string>
+    <string name="settings_about_section">About</string>
+    <string name="settings_privacy_row">Privacy details</string>
+    <string name="settings_privacy_row_body">What Vazie VPN stores, where, and what it never collects.</string>
+    <string name="settings_about_row">About Vazie VPN</string>
+    <string name="settings_about_row_body">Developer, privacy, and community</string>
+    <string name="settings_check_updates">Check for Updates</string>
+    <string name="settings_check_updates_checking">Checking…</string>
+
+    <!-- The build line: version name, version code, flavour, build type. Identifiers, never translated. -->
+    <string name="settings_about">Vazie VPN %1$s (%2$d) · %3$s · by Vazovsky</string>
+    <string name="settings_about_title">About Vazie VPN</string>
+
+
+    <string name="settings_made_by">Author</string>
+    <!-- Handles are names, not words: @vazovsky17 and @vazieapp stay as written in every locale. -->
+    <string name="settings_developer">Vazovsky on Telegram</string>
+    <string name="settings_developer_body">\@vazovsky17 — to the author personally</string>
+    <string name="settings_channel">Vazie on Telegram</string>
+    <string name="settings_channel_body">\@vazieapp — news, releases and questions about the app</string>
+    <string name="settings_folio">Folio</string>
+    <string name="settings_folio_body">folio.link/vazovsky — other projects</string>
+    <string name="settings_source">Source code</string>
+    <string name="settings_source_body">github.com/vazie-app/VazieVPN</string>
+    <string name="settings_behance">Support the project on Behance</string>
+    <string name="settings_behance_body">behance.net — the Vazie VPN case</string>
+    <string name="settings_project_section">Vazie and support</string>
+    <string name="settings_support_email">Support email</string>
+    <string name="settings_support_email_body">support\@vazie.app — questions about the app</string>
+    <string name="settings_support_section">Support the project</string>
+    <string name="settings_security_section">Security and transparency</string>
+    <string name="settings_about_help_section">Help</string>
+    <string name="settings_feedback_section">Feedback</string>
+    <string name="settings_boosty_title">Buy the developer a coffee</string>
+    <string name="settings_boosty_body">Vazie VPN is made by one person, in the evenings and at weekends. Helping is entirely optional and unlocks nothing — there is nothing to unlock. The app is free and always will be.</string>
+    <string name="settings_boosty_action">Open Boosty</string>
+
+    <string name="settings_made_by_title">Vazie VPN is made by Vazovsky</string>
+    <string name="settings_made_by_body">One person, evenings and weekends. Personal contacts here; questions about the app go to Vazie and support below.</string>
+
+    <!-- Privacy, in sections. Long by design: this is the one screen where a person is entitled to a complete
+         answer, and a summary of a privacy policy is a privacy policy nobody can check. -->
+    <string name="settings_privacy_title">Vazie VPN doesn\'t peek</string>
+    <string name="settings_privacy_body">Here is exactly what Vazie VPN holds, where it holds it, and what it never sees.</string>
+
+    <string name="privacy_stores_title">What Vazie VPN stores</string>
+    <string name="privacy_stores_configs">Your configurations: the server address, the port, the transport and security settings, and the keys needed to connect.</string>
+    <string name="privacy_stores_choices">Your choices: which configuration is selected, the theme, the app icon, and which tips you have dismissed.</string>
+    <string name="privacy_stores_usage">When each configuration was last used successfully — a timestamp, and nothing about what went through it.</string>
+
+    <string name="privacy_where_title">Where it is kept</string>
+    <string name="privacy_where_encrypted">Configurations and their keys are encrypted on this device, with a key held by Android\'s keystore. They are not readable by other apps and are not copied anywhere.</string>
+    <string name="privacy_where_plain">Your theme, icon and dismissed tips are in a plain file — they are preferences, not secrets, and keeping them out of the encrypted store means a display setting cannot break the store that holds your keys.</string>
+    <string name="privacy_where_backup">Nothing is included in Android\'s cloud backup. A restored phone starts with no configurations rather than with keys that travelled through somebody else\'s storage.</string>
+
+    <string name="privacy_never_title">What Vazie VPN never collects</string>
+    <string name="privacy_never_analytics">No behaviour analytics, no advertising identifiers, no location. Vazie VPN sends no crash reports.</string>
+    <string name="privacy_never_account">No account, no email, no phone number, no device identifier: Vazie VPN never asks who you are.</string>
+    <string name="privacy_never_browsing">No browsing history, no visited addresses, no record of what you connected to or when, beyond the last-used timestamp above.</string>
+
+    <string name="privacy_logs_title">Logs</string>
+    <string name="privacy_logs_body">Vazie VPN writes to the Android log only in debug builds, and never writes a key, a UUID, a share link or a server address into it. A release build is quiet.</string>
+
+    <string name="privacy_vpn_title">The VPN and your DNS</string>
+    <string name="privacy_vpn_body">While connected, your traffic goes through the server in the configuration you chose. That server can see the destinations your device asks for, exactly as your network provider could otherwise. Vazie VPN is the client; it does not run in between.</string>
+    <string name="privacy_vpn_dns">DNS queries follow the tunnel while it is up, so they go to the same server rather than to your provider.</string>
+
+
+    <string name="privacy_own_title">Your own configurations</string>
+    <string name="privacy_own_body">A configuration you imported is yours. It stays on this device, is never uploaded and costs nothing.</string>
+
+    <!-- Data drawn outside Vazie: widget preferences, filtered shortcut labels, and a tile built from
+         resources. -->
+    <string name="privacy_surfaces_title">Widgets, shortcuts and the tile</string>
+    <string name="privacy_surfaces_widgets">A home-screen widget shows the selected configuration\'s name, its protocol and the session\'s duration and traffic. Those are stored in the widget\'s own preferences so it can draw itself while Vazie VPN is closed — on this device, and never a key or an address.</string>
+    <string name="privacy_surfaces_shortcuts">Long-pressing the icon offers up to three configurations by name. A name that looks like an address, a link, an e-mail, an IP or a UUID is left out rather than shortened: a launcher label is visible without unlocking anything.</string>
+    <string name="privacy_surfaces_tile">The quick-settings tile shows the connection state and nothing else. It never names a configuration.</string>
+
+
+    <string name="privacy_export_title">Exporting a configuration</string>
+    <string name="privacy_export_body">Export produces the original share link, and that link contains the credentials that connect to the server. Anyone who receives it can use the server as you. Vazie VPN hands it to Android\'s share sheet at the moment you ask and keeps no copy.</string>
+    <!-- Spoken prefixes for the bullets in "What Vazie never collects"; the glyphs are not read aloud. -->
+    <string name="settings_privacy_never">Vazie VPN never sees this</string>
+    <string name="settings_privacy_always">True of Vazie VPN</string>
+
+    <!-- Guides & tour: the permanent home of everything Vazie can explain about the parts of itself that live
+         outside it. -->
+    <string name="settings_guides_row">Guides</string>
+    <string name="settings_guides_row_body">How to set up and use Vazie VPN</string>
+    <string name="settings_guides_title">Guides</string>
+    <string name="settings_guides_body">How to get started, and what each of the parts of Vazie VPN that live outside the app is.</string>
+    <string name="settings_guides_viewed">Viewed</string>
+    <!-- The status notification. The only guide whose absence has a functional consequence: with
+         notifications off, a running tunnel has no Disconnect anywhere outside the app. -->
+    <string name="guide_notification_title">Keep the tunnel visible</string>
+    <string name="guide_notification_body_off">While a tunnel is up, Vazie VPN can sit in your status bar with a Disconnect button on it — so you can stop it without opening the app. Notifications are off right now, so it can\'t.</string>
+    <string name="guide_notification_body_on">While a tunnel is up, Vazie VPN sits in your status bar with a Disconnect button on it, so you can stop it without opening the app.</string>
+    <string name="guide_notification_action">Open notification settings</string>
+    <string name="guide_notification_manual">How to change it</string>
+    <string name="guide_notification_step_1">Open your phone\'s settings, then Apps.</string>
+    <string name="guide_notification_step_2">Find Vazie VPN and open its notifications.</string>
+    <string name="guide_notification_step_3">Turn on the VPN connection notification.</string>
+    <string name="settings_guides_replay_tour">Take the tour again</string>
+    <string name="settings_guides_replay_tour_body">A quick walk through the main screen.</string>
+    <!-- Getting started: what a configuration is, for somebody who has never used a VPN client. -->
+    <string name="getting_started_section">Getting started</string>
+    <string name="getting_started_first_config_title">Add your first configuration</string>
+    <string name="getting_started_first_config_summary">What a configuration is and where to get one.</string>
+    <string name="getting_started_first_config_intro">To use your own VPN, Vazie VPN needs a configuration — a link with the settings for a server. You usually get one from a VPN provider, from whoever runs the server, or from a server you run yourself.</string>
+    <string name="getting_started_shape_heading">What it looks like</string>
+    <string name="getting_started_shape_body">It is normal for it to look like a long line of strange characters. Paste it into Vazie VPN and it will read the details for you.</string>
+    <string name="getting_started_example_a11y">An example of a configuration link</string>
+    <string name="getting_started_reads_heading">What Vazie VPN reads today</string>
+    <!-- %1$s is the format list, built from the parser registry rather than written here. -->
+    <string name="getting_started_reads_body">%1$s. If Vazie VPN doesn\'t recognise a link, it will say so and won\'t try to guess.</string>
+    <string name="getting_started_add_action">Add a configuration</string>
+    <string name="settings_guides_system_section">System integration</string>
+    <!-- Short summaries for the guides list, which is a table of contents rather than the guide. -->
+    <string name="guide_quick_settings_summary">Open or close the tunnel without opening Vazie VPN.</string>
+    <string name="guide_shortcuts_summary">Hold the icon and pick one — nothing to set up.</string>
+    <string name="guide_widgets_summary">Quick Connect and a Dashboard, on your home screen.</string>
+    <string name="guide_notification_summary">The tunnel in your status bar, with a Disconnect button.</string>
+    <string name="getting_started_first_config_short">First configuration</string>
+    <!-- Managing a configuration. Short on purpose: it is four things a person can do, not a manual. -->
+    <string name="getting_started_manage_title">Manage your configurations</string>
+    <string name="getting_started_manage_short">Configurations</string>
+    <string name="getting_started_manage_summary">Selecting, renaming and deleting.</string>
+    <string name="getting_started_manage_intro">Once you have a configuration, everything you can do with it is in two places: the list, and the configuration\'s own screen.</string>
+    <string name="getting_started_manage_list_heading">In the list</string>
+    <string name="getting_started_manage_list_body">Tap a configuration to use it. Swipe it to delete it — deleting always asks first.</string>
+    <string name="getting_started_manage_details_heading">In Details</string>
+    <string name="getting_started_manage_details_body">Open a configuration to rename it, duplicate it, or export it. Duplicating makes a second copy on this device; deleting removes it from this device only.</string>
+    <string name="getting_started_manage_export_heading">About exporting</string>
+    <string name="getting_started_manage_export_body">Export creates a shareable configuration. It can contain the credentials needed to connect, so treat it like a password.</string>
+
+    <!-- Questions and answers: the same as on vazie.app. -->
+    <string name="settings_faq_row">Frequently Asked Questions</string>
+    <string name="settings_faq_row_body">Connections, configurations and subscriptions</string>
+    <string name="faq_title">Questions and answers</string>
+    <string name="faq_loading">Loading questions…</string>
+    <string name="faq_unavailable">Couldn\'t load the questions. Check your connection and try again.</string>
+    <string name="faq_retry">Try again</string>
+    <string name="faq_empty">No questions yet.</string>
+
+    <!-- Split tunnelling: which apps use the VPN. -->
+    <string name="split_tunnel_title">Split tunneling</string>
+    <string name="split_tunnel_mode_off">All apps through VPN</string>
+    <string name="split_tunnel_mode_off_body">Every app on the phone uses the tunnel.</string>
+    <string name="split_tunnel_mode_exclude">All but the chosen apps</string>
+    <string name="split_tunnel_mode_exclude_body">The apps you pick go straight through your provider; everything else uses the VPN.</string>
+    <string name="split_tunnel_mode_include">Only the chosen apps</string>
+    <string name="split_tunnel_mode_include_body">Only the apps you pick use the VPN; everything else goes straight through your provider.</string>
+    <string name="split_tunnel_note">Changes take effect the next time you connect. Only apps with a home-screen icon are listed.</string>
+    <string name="split_tunnel_search">Find an app</string>
+    <string name="split_tunnel_loading">Loading apps…</string>
+    <string name="split_tunnel_nothing_found">No apps match.</string>
+    <string name="split_tunnel_status_off">All apps use VPN</string>
+    <plurals name="split_tunnel_selected">
+        <item quantity="one">%d app chosen</item>
+        <item quantity="other">%d apps chosen</item>
+    </plurals>
+    <plurals name="split_tunnel_status_exclude">
+        <item quantity="one">%d app bypasses VPN</item>
+        <item quantity="other">%d apps bypass VPN</item>
+    </plurals>
+    <plurals name="split_tunnel_status_include">
+        <item quantity="one">Only %d app through VPN</item>
+        <item quantity="other">Only %d apps through VPN</item>
+    </plurals>
+    <string name="settings_report_bug">Report a bug or leave feedback</string>
+    <string name="settings_report_bug_body">A short form for bug reports, suggestions and feedback.</string>
+
+    <!-- Settings' Help & Support rows: the words are the app's, the links the backend's (bug_report, support_email). -->
+    <string name="settings_feedback_row">Feedback</string>
+    <string name="settings_feedback_row_body">Report a bug or suggest an idea</string>
+    <string name="settings_contact_support">Contact Support</string>
+    <string name="settings_contact_support_body">We\'re here to help with any questions</string>
+    <string name="settings_privacy_section">Privacy</string>
+    <!-- The footer under Settings. The name is the brand, the version comes from the build. -->
+    <string name="settings_footer_name">Vazie VPN</string>
+    <string name="settings_footer_made_by">Made with 💜 by Vazovsky</string>
+</resources>

@@ -1,0 +1,47 @@
+name: CI (macOS app)
+
+# The Swift package's tests (they include the shared link corpus and "every string in both languages") and a build of
+# the app bundle. Nothing here signs with a real identity, notarizes, publishes or reads a secret. The tests that
+# need the Xray engine or change real network settings skip themselves unless asked for.
+
+on:
+  pull_request:
+    branches: [main]
+    paths: ['apps/macos/**', 'apps/browser-extension/src/shared/i18n/**', 'shared/**', '.github/workflows/macos.yml']
+  push:
+    branches: [main]
+    paths: ['apps/macos/**', 'apps/browser-extension/src/shared/i18n/**', 'shared/**', '.github/workflows/macos.yml']
+
+permissions:
+  contents: read
+
+concurrency:
+  group: macos-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  macos:
+    name: "macOS app: test and build"
+    runs-on: macos-15
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: apps/macos
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Shared words are in step
+        run: scripts/sync-strings.sh --check
+
+      - run: swift test
+
+      - name: Build the app (ad hoc signature)
+        run: scripts/build-app.sh --release --identity -
+
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: vazie-vpn-macos
+          path: apps/macos/build/Vazie VPN.app
+          retention-days: 14

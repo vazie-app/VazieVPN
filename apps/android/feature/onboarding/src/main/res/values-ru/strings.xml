@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="onboarding_skip">Пропустить</string>
+    <string name="onboarding_next">Дальше</string>
+    <string name="onboarding_add_config">Добавить конфигурацию</string>
+    <string name="onboarding_start">Поехали</string>
+    <string name="onboarding_page_indicator">Страница %1$d из %2$d</string>
+
+    <string name="onboarding_welcome_title">Привет, я Vazi</string>
+    <string name="onboarding_welcome_body">Я приглядываю за туннелем в этом приложении. Буду на главном экране говорить, защищены вы или нет, а когда нет — спать. Дайте мне тридцать секунд, и я всё покажу.</string>
+
+    <string name="onboarding_what_title">Что такое Vazie VPN</string>
+    <string name="onboarding_what_body">VPN-клиент: он поднимает зашифрованный туннель между этим телефоном и сервером, поэтому сеть, в которой вы находитесь, видит трафик к этому серверу и ничего о том, куда он идёт дальше. Vazie VPN — клиент. Это не служба, которая за вами присматривает.</string>
+
+
+    <string name="onboarding_own_title">Сервер приносите вы</string>
+    <string name="onboarding_own_body">Vazie VPN поставляется без серверов, поэтому первым делом вставьте ссылку VLESS, которая у вас уже есть. Она хранится зашифрованной на этом устройстве и никуда не выгружается — ни нам, ни кому-либо ещё. Аккаунт заводить не нужно, платить не за что.</string>
+
+    <string name="onboarding_reach_title">Vazie VPN, не открывая приложение</string>
+    <string name="onboarding_reach_body">Два виджета рабочего стола, плитка в шторке быстрых настроек и ваши конфигурации под иконкой приложения, если задержать на ней палец. Настраивать сейчас ничего не нужно — через минуту покажу основное.</string>
+
+    <!-- Цены — backend’а, форматируются в приложении: здесь их нет. %1$s — цена за месяц. -->
+</resources>

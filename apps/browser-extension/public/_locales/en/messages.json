@@ -1,0 +1,5 @@
+{
+  "extName": { "message": "Vazie VPN" },
+  "extDescription": { "message": "A calm client for your own VLESS configurations, in your browser. No account, no ads, no analytics." },
+  "commandToggle": { "message": "Connect or disconnect" }
+}

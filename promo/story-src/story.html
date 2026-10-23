@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Vazie VPN story</title>
+<style>
+@font-face { font-family: "Geologica"; src: url("geologica.ttf"); font-weight: 100 900; }
+@font-face { font-family: "Martian Mono"; src: url("martian_mono.ttf"); font-weight: 100 800; }
+:root {
+  --bg: #0d1020; --surface: #151932; --elevated: #1c2142; --primary: #9db0ff; --accent: #c9b6f2;
+  --text: #eef0fa; --text2: #aab0cf; --muted: #8a91b4; --border: #323969; --divider: #262c54;
+  --accent-c: #2b3163; --on-accent-c: #dce2ff; --success: #9fd8b8; --action: #f1e3c8; --on-action: #241c14;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--bg); font-family: "Geologica", system-ui, sans-serif; color: var(--text); }
+#stage { position: relative; width: 1080px; height: 1920px; overflow: hidden;
+  background: radial-gradient(1200px 900px at 85% -5%, #3a2f78 0%, rgba(58,47,120,0) 60%), radial-gradient(1000px 800px at -10% 105%, #1f2a66 0%, rgba(31,42,102,0) 62%), var(--bg); }
+.glow { position: absolute; border-radius: 50%; filter: blur(90px); opacity: .5; }
+.scene { position: absolute; inset: 0; opacity: 0; }
+.abs { position: absolute; }
+.center { left: 0; right: 0; text-align: center; }
+.icon { width: 300px; height: 300px; border-radius: 70px; box-shadow: 0 40px 120px rgba(124, 92, 255, .45); }
+h1 { font-weight: 800; font-size: 150px; letter-spacing: -3px; line-height: 1; }
+h1 span { color: var(--primary); }
+.sub { font-weight: 400; font-size: 54px; line-height: 1.25; color: var(--text2); }
+.kicker { font-weight: 600; font-size: 40px; letter-spacing: 6px; text-transform: uppercase; color: var(--accent); }
+.head { font-weight: 800; font-size: 96px; line-height: 1.05; letter-spacing: -2px; }
+.head em { font-style: normal; color: var(--primary); }
+.mono { font-family: "Martian Mono", monospace; }
+
+/* phone */
+.phone { position: absolute; left: 190px; width: 700px; height: 930px; border-radius: 84px; background: var(--bg); border: 5px solid var(--border);
+  box-shadow: 0 60px 160px rgba(0,0,0,.6), 0 0 0 10px rgba(157,176,255,.06); overflow: hidden; }
+.phone .status { display: flex; justify-content: space-between; padding: 30px 50px 0; font-size: 26px; color: var(--text2); font-weight: 500; }
+.phone .app { padding: 26px 44px 0; }
+.phone .title { font-size: 34px; font-weight: 700; } .phone .title span { color: var(--primary); }
+.row { display: flex; align-items: center; gap: 24px; margin-top: 54px; }
+.power { width: 88px; height: 88px; border-radius: 50%; background: var(--accent-c); display: grid; place-items: center; flex: none; }
+.power svg { width: 42px; height: 42px; }
+.state { font-size: 56px; font-weight: 700; line-height: 1.05; }
+.state-sub { font-size: 25px; color: var(--text2); margin-top: 8px; line-height: 1.3; }
+.card { background: var(--surface); border-radius: 36px; border: 2px solid var(--divider); }
+.route { margin-top: 44px; height: 280px; position: relative; }
+.node { position: absolute; top: 74px; width: 92px; height: 92px; border-radius: 50%; background: var(--elevated); border: 2px solid var(--border); display: grid; place-items: center; font-size: 26px; font-weight: 700; color: var(--on-accent-c); }
+.node-l { font-size: 24px; color: var(--muted); position: absolute; top: 182px; }
+.btn { margin-top: 40px; height: 118px; border-radius: 34px; background: var(--action); color: var(--on-action); font-size: 38px; font-weight: 700; display: flex; align-items: center; justify-content: center; gap: 18px; position: relative; overflow: hidden; }
+.list-h { display: flex; justify-content: space-between; margin-top: 42px; font-size: 26px; color: var(--text2); font-weight: 600; }
+.list-h b { color: var(--primary); font-weight: 600; }
+.cfg { margin-top: 14px; display: flex; align-items: center; gap: 22px; padding: 22px 26px; }
+.cfg .av { width: 62px; height: 62px; border-radius: 20px; background: var(--accent-c); display: grid; place-items: center; font-size: 22px; font-weight: 700; color: var(--on-accent-c); }
+.cfg .nm { font-size: 32px; font-weight: 600; } .cfg .pr { font-size: 22px; color: var(--muted); }
+.cfg .st { margin-left: auto; font-size: 22px; color: var(--text2); display: flex; align-items: center; gap: 10px; }
+.dot { width: 14px; height: 14px; border-radius: 50%; background: var(--muted); display: inline-block; }
+
+/* browser */
+.win { position: absolute; left: 70px; width: 940px; height: 820px; border-radius: 38px; background: #12162e; border: 4px solid var(--border); box-shadow: 0 60px 160px rgba(0,0,0,.6); overflow: hidden; }
+.tabs { height: 78px; background: #0a0d1b; display: flex; align-items: flex-end; padding: 0 26px; gap: 14px; }
+.tl { display: flex; gap: 12px; align-self: center; margin-right: 18px; } .tl i { width: 20px; height: 20px; border-radius: 50%; background: #323969; display: block; }
+.tab { height: 54px; width: 320px; border-radius: 20px 20px 0 0; background: #12162e; padding: 12px 24px; font-size: 24px; color: var(--text2); }
+.bar { height: 100px; background: #12162e; display: flex; align-items: center; gap: 20px; padding: 0 28px; border-bottom: 2px solid var(--divider); }
+.url { flex: 1; height: 62px; border-radius: 31px; background: #0a0d1b; padding: 0 28px; display: flex; align-items: center; font-size: 28px; color: var(--text2); }
+.ext { width: 62px; height: 62px; border-radius: 18px; background: var(--elevated); display: grid; place-items: center; position: relative; }
+.ext img { width: 40px; height: 40px; border-radius: 10px; }
+.ext .pip { position: absolute; right: -2px; bottom: -2px; width: 22px; height: 22px; border-radius: 50%; border: 4px solid #12162e; background: var(--muted); }
+.page { padding: 44px; } .sk { background: #1c2142; border-radius: 20px; }
+.pop { position: absolute; right: 26px; width: 520px; border-radius: 34px; background: var(--surface); border: 2px solid var(--border); box-shadow: 0 40px 100px rgba(0,0,0,.6); padding: 34px; }
+.pop .t { display: flex; justify-content: space-between; font-size: 30px; font-weight: 700; } .pop .t span { color: var(--primary); }
+.pop .big { font-size: 52px; font-weight: 700; margin-top: 30px; }
+.pop .small { font-size: 24px; color: var(--text2); margin-top: 6px; }
+.pop .btn { height: 96px; border-radius: 28px; font-size: 34px; margin-top: 30px; }
+.pop .stats { display: flex; gap: 18px; margin-top: 26px; }
+.pop .stat { flex: 1; background: var(--elevated); border-radius: 24px; padding: 18px 22px; }
+.pop .stat small { display: block; font-size: 20px; color: var(--muted); }
+.pop .stat b { font-family: "Martian Mono", monospace; font-size: 30px; font-weight: 600; }
+.chips { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+.chip { padding: 16px 30px; border-radius: 999px; border: 3px solid var(--border); background: rgba(43,49,99,.55); font-size: 36px; font-weight: 600; color: var(--on-accent-c); }
+.feat { position: absolute; left: 90px; right: 90px; border-radius: 48px; background: rgba(21,25,50,.82); border: 2px solid var(--border); padding: 44px 50px; display: flex; align-items: center; gap: 40px; }
+.feat .ic { width: 120px; height: 120px; border-radius: 36px; background: var(--accent-c); display: grid; place-items: center; flex: none; }
+.feat .ic svg { width: 64px; height: 64px; }
+.feat h3 { font-size: 48px; font-weight: 700; line-height: 1.1; } .feat p { font-size: 34px; color: var(--text2); margin-top: 10px; line-height: 1.25; }
+.cta { display: inline-block; padding: 34px 64px; border-radius: 40px; background: var(--action); color: var(--on-action); font-size: 54px; font-weight: 700; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="glow" id="g1" style="width:700px;height:700px;background:#5a3fd0;left:560px;top:-160px"></div>
+  <div class="glow" id="g2" style="width:600px;height:600px;background:#2c46c9;left:-200px;top:1300px"></div>
+
+  <!-- A: intro -->
+  <section class="scene" id="A">
+    <img class="icon abs" id="A-icon" src="icon.png" style="left:390px;top:480px">
+    <h1 class="abs center" id="A-title" style="top:860px">Vazie <span>VPN</span></h1>
+    <p class="sub abs center" id="A-sub" style="top:1040px;padding:0 120px">Спокойный клиент для ваших<br>VLESS-конфигураций</p>
+  </section>
+
+  <!-- B: phone -->
+  <section class="scene" id="B">
+    <p class="kicker abs center" id="B-k" style="top:270px">Android</p>
+    <h2 class="head abs center" id="B-h" style="top:340px">Одно нажатие —<br><em>и вы под защитой</em></h2>
+    <div class="phone" id="B-phone" style="top:640px">
+      <div class="status"><span>9:41</span><span>●●●</span></div>
+      <div class="app">
+        <div class="title">Vazie <span>VPN</span></div>
+        <div class="row">
+          <div class="power"><svg viewBox="0 0 24 24" fill="none" stroke="#dce2ff" stroke-width="2.2" stroke-linecap="round"><path d="M12 3v8"/><path d="M6.3 6.8a8 8 0 1 0 11.4 0"/></svg></div>
+          <div><div class="state" id="B-state">Не подключено</div><div class="state-sub" id="B-ssub">Трафик идёт напрямую через<br>вашего провайдера</div></div>
+        </div>
+        <div class="card route" id="B-route">
+          <svg width="612" height="280" style="position:absolute;left:0;top:0"><path id="B-path" d="M 100 120 C 220 60, 380 180, 512 120" fill="none" stroke="#5b6186" stroke-width="5" stroke-dasharray="4 16" stroke-linecap="round"/><path id="B-path2" d="M 100 120 C 220 60, 380 180, 512 120" fill="none" stroke="url(#gr)" stroke-width="7" stroke-linecap="round" stroke-dasharray="460" stroke-dashoffset="460"/><defs><linearGradient id="gr" x1="0" x2="1"><stop offset="0" stop-color="#9db0ff"/><stop offset="1" stop-color="#c9b6f2"/></linearGradient></defs><circle id="B-pulse" r="12" fill="#eef0fa" cx="100" cy="120" opacity="0"/></svg>
+          <div class="node" style="left:34px" id="B-n1">▢</div><div class="node-l" style="left:34px">Вы</div>
+          <div class="node" style="left:486px" id="B-n2">VL</div><div class="node-l" style="left:452px;width:160px;text-align:right">Ваш сервер</div>
+        </div>
+        <div class="btn" id="B-btn"><span id="B-btn-t">Подключиться</span><i id="B-ripple" style="position:absolute;width:40px;height:40px;border-radius:50%;background:rgba(36,28,20,.18);left:300px;top:40px;opacity:0"></i></div>
+        <div class="list-h"><span>Мои конфигурации</span><b>+ Добавить</b></div>
+        <div class="card cfg"><div class="av">VL</div><div><div class="nm">Travel</div><div class="pr">VLESS · REALITY</div></div><div class="st"><i class="dot"></i>Готова</div></div>
+        <div class="card cfg"><div class="av">VL</div><div><div class="nm">Home server</div><div class="pr">VLESS · TLS</div></div><div class="st"><i class="dot" id="B-dot" style="background:#9db0ff"></i><span id="B-sel">Выбрана</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- C: browser -->
+  <section class="scene" id="C">
+    <p class="kicker abs center" id="C-k" style="top:270px">Новое</p>
+    <h2 class="head abs center" id="C-h" style="top:340px">Теперь и <em>в браузере</em></h2>
+    <div class="win" id="C-win" style="top:600px">
+      <div class="tabs"><div class="tl"><i></i><i></i><i></i></div><div class="tab">Новая вкладка</div></div>
+      <div class="bar"><div class="url mono" style="font-size:24px">vazie.app/vpn</div><div class="ext"><img src="icon.png"><i class="pip" id="C-pip"></i></div></div>
+      <div class="page">
+        <div class="sk" style="height:70px;width:55%"></div>
+        <div class="sk" style="height:26px;width:90%;margin-top:30px;opacity:.7"></div>
+        <div class="sk" style="height:26px;width:76%;margin-top:18px;opacity:.7"></div>
+        <div class="sk" style="height:250px;width:100%;margin-top:40px;opacity:.55"></div>
+      </div>
+      <div class="pop" id="C-pop" style="top:196px">
+        <div class="t"><div>Vazie <span>VPN</span></div><div id="C-clock" class="mono" style="font-size:22px;color:#8a91b4;font-weight:500">00:00</div></div>
+        <div class="big" id="C-state">Не подключено</div>
+        <div class="small">Home server</div>
+        <div class="stats" id="C-stats" style="opacity:0"><div class="stat"><small>Загрузка ↓</small><b id="C-dn">0 КБ</b></div><div class="stat"><small>Отдача ↑</small><b id="C-up">0 КБ</b></div></div>
+        <div class="btn" id="C-btn"><span id="C-btn-t">Подключиться</span></div>
+      </div>
+    </div>
+    <div class="chips abs" id="C-chips" style="left:60px;right:60px;top:1500px"><span class="chip">Chrome</span><span class="chip">Edge</span><span class="chip">Brave</span><span class="chip">Vivaldi</span><span class="chip">Arc</span></div>
+  </section>
+
+  <!-- D: features -->
+  <section class="scene" id="D">
+    <p class="kicker abs center" id="D-k" style="top:270px">Всё по-честному</p>
+    <h2 class="head abs center" id="D-h" style="top:340px">Ваш сервер.<br><em>Ваши правила.</em></h2>
+    <div class="feat" id="D-f1" style="top:680px"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#9db0ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.2 7.8-8 9-4.8-1.2-8-4.5-8-9V6z"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></div><div><h3>VLESS · REALITY · TLS</h3><p>TCP, WebSocket и gRPC</p></div></div>
+    <div class="feat" id="D-f2" style="top:960px"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#c9b6f2" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg></div><div><h3>Раздельное туннелирование</h3><p>По приложениям и по сайтам</p></div></div>
+    <div class="feat" id="D-f3" style="top:1240px"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#9fd8b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="14" height="10" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div><div><h3>Без аккаунта и аналитики</h3><p>Конфигурации — только на устройстве</p></div></div>
+  </section>
+
+  <!-- E: CTA -->
+  <section class="scene" id="E">
+    <img class="icon abs" id="E-icon" src="icon.png" style="left:410px;top:430px;width:260px;height:260px;border-radius:60px">
+    <h1 class="abs center" id="E-title" style="top:740px;font-size:130px">Vazie <span>VPN</span></h1>
+    <p class="sub abs center" id="E-sub" style="top:920px;padding:0 100px">Бесплатно. С открытым кодом.<br>Серверы — ваши.</p>
+    <div class="abs center" id="E-cta" style="top:1230px"><span class="cta">Скачать на vazie.app/vpn</span></div>
+    <p class="abs center mono" id="E-lic" style="top:1420px;font-size:28px;color:#8a91b4">GPL-3.0 · Android · Chrome · Edge · Brave · Arc</p>
+  </section>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const prog = (t, a, b) => clamp((t - a) / (b - a));
+const eo = (x) => 1 - Math.pow(1 - x, 3);
+const eio = (x) => x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2;
+const back = (x) => { const c1 = 1.70158, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); };
+const fmt = (v, d = 0) => v.toFixed(d);
+
+// scene windows: [in, out]; each fades 0.45s at the edges
+const SCENES = { A: [0, 3.4], B: [3.2, 8.4], C: [8.2, 13.2], D: [13.0, 16.6], E: [16.4, 20.0] };
+const TOTAL = 20;
+const FADE = .45;
+
+function sceneAlpha(name, t) {
+  const [a, b] = SCENES[name];
+  if (t < a || t > b) return 0;
+  const fin = name === "A" ? 1 : prog(t, a, a + FADE);
+  const fout = name === "E" ? 1 : 1 - prog(t, b - FADE, b);
+  return Math.min(fin, fout);
+}
+function rise(el, t, a, d = .7, dist = 60) {
+  const p = eo(prog(t, a, a + d));
+  el.style.opacity = p;
+  el.style.transform = `translateY(${(1 - p) * dist}px)`;
+}
+
+function seek(t) {
+  for (const n of Object.keys(SCENES)) $(n).style.opacity = sceneAlpha(n, t);
+  // drifting glows
+  $("g1").style.transform = `translate(${Math.sin(t * .5) * 60}px, ${Math.cos(t * .4) * 50}px)`;
+  $("g2").style.transform = `translate(${Math.cos(t * .45) * 70}px, ${Math.sin(t * .35) * 60}px)`;
+
+  // ---- A
+  { const p = clamp(prog(t, .1, 1.1)); const s = back(p);
+    $("A-icon").style.transform = `scale(${.4 + .6 * s}) rotate(${(1 - p) * -12}deg)`; $("A-icon").style.opacity = eo(prog(t, .1, .6)); }
+  rise($("A-title"), t, .7); rise($("A-sub"), t, 1.2);
+
+  // ---- B
+  const tb = t - SCENES.B[0];
+  rise($("B-k"), t, 3.35, .5, 30); rise($("B-h"), t, 3.5, .7, 40);
+  { const p = eo(prog(t, 3.6, 4.5)); $("B-phone").style.opacity = p; $("B-phone").style.transform = `translateY(${(1 - p) * 220}px)`; }
+  // tap at 5.4s, connected from 5.7s
+  const tap = prog(t, 5.3, 5.7);
+  $("B-ripple").style.opacity = tap > 0 && tap < 1 ? .9 * (1 - tap) : 0;
+  $("B-ripple").style.transform = `scale(${1 + tap * 9})`;
+  $("B-btn").style.transform = `scale(${1 - Math.sin(clamp(tap) * Math.PI) * .04})`;
+  const conn = t >= 5.7;
+  const route = eio(prog(t, 5.7, 6.9));
+  $("B-state").textContent = conn ? "Подключено" : "Не подключено";
+  $("B-ssub").innerHTML = conn ? "Трафик идёт через ваш<br>сервер" : "Трафик идёт напрямую через<br>вашего провайдера";
+  $("B-btn-t").textContent = conn ? "Отключиться" : "Подключиться";
+  $("B-path2").style.strokeDashoffset = 460 * (1 - route);
+  $("B-path").style.opacity = 1 - route * .8;
+  $("B-n2").style.boxShadow = conn ? `0 0 ${30 * route}px rgba(157,176,255,${.7 * route})` : "none";
+  $("B-n2").style.borderColor = conn ? "#9db0ff" : "#323969";
+  $("B-sel").textContent = conn ? "Активна" : "Выбрана";
+  $("B-dot").style.background = conn ? "#9fd8b8" : "#9db0ff";
+  { const pl = $("B-pulse"); if (conn && route >= 1) { const k = ((t - 6.9) % 1.2) / 1.2; const path = $("B-path2");
+      const pt = path.getPointAtLength(460 * k); pl.setAttribute("cx", pt.x); pl.setAttribute("cy", pt.y); pl.style.opacity = Math.sin(k * Math.PI); } else pl.style.opacity = 0; }
+
+  // ---- C
+  rise($("C-k"), t, 8.35, .5, 30); rise($("C-h"), t, 8.5, .7, 40);
+  { const p = eo(prog(t, 8.6, 9.5)); $("C-win").style.opacity = p; $("C-win").style.transform = `translateY(${(1 - p) * 200}px) scale(${.94 + .06 * p})`; }
+  { const p = eo(prog(t, 9.8, 10.4)); $("C-pop").style.opacity = p; $("C-pop").style.transform = `translateY(${(1 - p) * -30}px)`; }
+  const ctap = prog(t, 10.9, 11.25);
+  $("C-btn").style.transform = `scale(${1 - Math.sin(clamp(ctap) * Math.PI) * .05})`;
+  const cc = t >= 11.25; const cs = eo(prog(t, 11.25, 11.9));
+  $("C-state").textContent = cc ? "Подключено" : "Не подключено";
+  $("C-btn-t").textContent = cc ? "Отключиться" : "Подключиться";
+  $("C-pip").style.background = cc ? "#9fd8b8" : "#8a91b4";
+  $("C-stats").style.opacity = cs;
+  { const k = Math.max(0, t - 11.25); $("C-dn").textContent = fmt(k * 410 + 12) + " КБ"; $("C-up").textContent = fmt(k * 96 + 3) + " КБ";
+    const sec = Math.floor(k * 6); $("C-clock").textContent = cc ? `00:${String(sec % 60).padStart(2, "0")}` : "00:00"; }
+  { const p = eo(prog(t, 11.5, 12.3)); $("C-chips").style.opacity = p; $("C-chips").style.transform = `translateY(${(1 - p) * 40}px)`; }
+
+  // ---- D
+  rise($("D-k"), t, 13.15, .5, 30); rise($("D-h"), t, 13.3, .7, 40);
+  rise($("D-f1"), t, 13.8, .7, 90); rise($("D-f2"), t, 14.4, .7, 90); rise($("D-f3"), t, 15.0, .7, 90);
+
+  // ---- E
+  { const p = prog(t, 16.6, 17.5); $("E-icon").style.opacity = eo(prog(t, 16.6, 17.0)); $("E-icon").style.transform = `scale(${.5 + .5 * back(p)})`; }
+  rise($("E-title"), t, 17.0); rise($("E-sub"), t, 17.4); rise($("E-cta"), t, 17.9, .7, 40); rise($("E-lic"), t, 18.4, .6, 20);
+  { const k = 1 + Math.sin(Math.max(0, t - 18.6) * 3.2) * .02 * (t > 18.6 ? 1 : 0); $("E-cta").firstElementChild.style.transform = `scale(${k})`; $("E-cta").firstElementChild.style.display = "inline-block"; }
+}
+window.seek = seek; window.TOTAL = TOTAL;
+seek(0);
+</script>
+</body>
+</html>
